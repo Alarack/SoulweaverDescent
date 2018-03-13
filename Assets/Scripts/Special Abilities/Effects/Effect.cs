@@ -89,6 +89,9 @@ public class Effect {
     }
 
     public virtual void BeginDelivery() {
+        if(string.IsNullOrEmpty( parentAbility.animationTrigger) == false)
+            SetBehaviourCurrentAbility();
+
         //if (!string.IsNullOrEmpty(animationTrigger)) {
         //    SetBehaviourCurrentAbility();
 
