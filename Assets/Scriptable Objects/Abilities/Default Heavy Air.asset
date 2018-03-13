@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a32eda1ec66fd4da03f04e11c6d724, type: 3}
+  m_Name: Default Heavy Air
+  m_EditorClassIdentifier: 
+  abilityName: Default Heavy Air
+  abilityIcon: {fileID: 21300076, guid: f81949b39bc707348ba6baa043763e04, type: 3}
+  useDuration: 0.2
+  overrideOtherAbilities: 0
+  procChance: 1
+  effectTypes: 01000000
+  recoveryType: 2
+  activationMethod: 1
+  abilityType: 1
+  abilityLimitations: 2
+  recoveryManager:
+    recoveryTypes: 
+    recoveryCooldown:
+      recoveryType: 2
+      cooldown: 0.2
+  effectHolder:
+    attacks:
+    - effectName: Melee Heavy Air
+      riderTarget: 
+      effectType: 1
+      deliveryMethod: 2
+      animationTrigger: LightAttack
+      rayCastDelivery:
+        targetingMethod: 1
+        layerMask:
+          serializedVersion: 2
+          m_Bits: 0
+        range: 0
+      projectileDelivery:
+        targetingMethod: 1
+        layerMask:
+          serializedVersion: 2
+          m_Bits: 0
+        range: 0
+        projectileType: 0
+        prefabName: 
+        error: 0
+      meleeDelivery:
+        targetingMethod: 1
+        layerMask:
+          serializedVersion: 2
+          m_Bits: 4096
+        range: 0
+        prefabName: DefaultHit
+      effectDamage: -10
+      scaleFromBaseDamage: 0
+      percentOfBaseDamage: 1
+      burstAttack: 0
+      burstNumber: 0
+      burstInterval: 0
+      impactEffectName: 
+      fireEffectName: 
+      penetrate: 0
+      numPenetrations: 0
+    statusEffects: []
+  sequencedAbilities: []
+  sequenceWindow: 0.5
+  animationTrigger: Light Attack Air
