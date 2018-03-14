@@ -84,7 +84,9 @@ public class Constants : MonoBehaviour {
         AnimationEvent = 3,
         EntityDied = 4,
         EffectApplied = 5,
-        DifficultyChange = 6
+        DifficultyChange = 6,
+        ItemAquired = 7,
+        ItemRemoved = 8,
     }
 
 

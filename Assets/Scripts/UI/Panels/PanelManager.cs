@@ -20,27 +20,26 @@ public class PanelManager : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.D)) {
-            GetPanelByType(BasePanel.PanelType.DeckView).Toggle();
+        if (Input.GetKeyDown(KeyCode.I)) {
+            OpenPanel(BasePanel.PanelType.Inventory);
         }
     }
 
     public void OpenPanel(string panelName) {
         switch (panelName) {
-            case "DrawPanel":
-                GetPanelByType(BasePanel.PanelType.DrawPanel).Open();
+            case "Inventory":
+                GetPanelByType(BasePanel.PanelType.Inventory).Open();
                 break;
 
-            case "OptionsPanel":
+            case "InGameMenu":
                 GetPanelByType(BasePanel.PanelType.InGameMenu).Open();
-                break;
-
-            case "EnemyHand":
-                GetPanelByType(BasePanel.PanelType.EnemyHand).Open();
                 break;
         }
     }
 
+    public void OpenPanel(BasePanel.PanelType panelType) {
+        GetPanelByType(panelType).Open();
+    }
 
     public BasePanel GetPanelByType(BasePanel.PanelType type) {
         int count = allPanels.Count;
@@ -49,12 +48,10 @@ public class PanelManager : MonoBehaviour {
             if (allPanels[i].panelType == type) {
                 return allPanels[i];
             }
-
         }
 
         return null;
     }
-
 
     public bool IsPanelOpen() {
         bool result = false;
@@ -66,6 +63,10 @@ public class PanelManager : MonoBehaviour {
                 return true;
         }
         return result;
+    }
+
+    public bool IsPanelOpen(BasePanel.PanelType panelType) {
+        return GetPanelByType(panelType).IsOpen;
     }
 
     public List<BasePanel> GetOpenPanels() {

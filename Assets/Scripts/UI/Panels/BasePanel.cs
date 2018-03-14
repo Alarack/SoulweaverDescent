@@ -6,10 +6,8 @@ using DG.Tweening;
 public class BasePanel : MonoBehaviour {
 
     public enum PanelType {
-        DrawPanel = 0,
-        InGameMenu = 1,
-        EnemyHand = 2,
-        DeckView = 3,
+        InGameMenu = 0,
+        Inventory = 1,
     }
 
     [Header("Panel Type")]
