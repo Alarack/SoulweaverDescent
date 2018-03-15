@@ -28,6 +28,12 @@ public class InventoryPanel : BasePanel {
 
     private void GetSlots() {
         slots = GetComponentsInChildren<InventorySlot>().ToList();
+
+        int count = slots.Count;
+
+        for (int i = 0; i < count; i++) {
+            slots[i].Initialize(this);
+        }
     }
 
     public InventorySlot GetFirstEmptySlot() {
@@ -52,7 +58,6 @@ public class InventoryPanel : BasePanel {
         return null;
     }
 
-
     #region EVENTS
 
     public void OnItemAquired(EventData data) {
@@ -62,16 +67,24 @@ public class InventoryPanel : BasePanel {
             return;
         }
 
-        Item item = data.GetMonoBehaviour("Item") as Item;
+        int itemID = data.GetInt("ItemID");
+        Item item = ItemFactory.GetItemByID(itemID);
+
+        
+        if(GetSlotByContents(item) != null) {
+            Debug.LogError("[Inventory Panel] an item " + item.itemName + " is already being displayed");
+            return;
+        }
 
         emptySlot.AssignItem(item);
     }
 
     public void OnItemRemoved(EventData data) {
-        Item item = data.GetMonoBehaviour("Item") as Item;
+        int itemID = data.GetInt("ItemID");
+        Item item = ItemFactory.GetItemByID(itemID);
         InventorySlot currentSlot = GetSlotByContents(item);
 
-        currentSlot.RemoveItem(item);
+        currentSlot.RemoveItem();
     }
 
     #endregion

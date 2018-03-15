@@ -62,7 +62,7 @@ MonoBehaviour:
       burstNumber: 0
       burstInterval: 0
       impactEffectName: Test Hit
-      fireEffectName: Test Slash
+      fireEffectName: VFX_CurvedSlash
       penetrate: 0
       numPenetrations: 0
     statusEffects: []

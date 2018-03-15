@@ -21,7 +21,7 @@ public class PanelManager : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.I)) {
-            OpenPanel(BasePanel.PanelType.Inventory);
+            TogglePanel(BasePanel.PanelType.Inventory);
         }
     }
 
@@ -39,6 +39,10 @@ public class PanelManager : MonoBehaviour {
 
     public void OpenPanel(BasePanel.PanelType panelType) {
         GetPanelByType(panelType).Open();
+    }
+
+    public void TogglePanel(BasePanel.PanelType panelType) {
+        GetPanelByType(panelType).Toggle();
     }
 
     public BasePanel GetPanelByType(BasePanel.PanelType type) {
