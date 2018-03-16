@@ -87,6 +87,8 @@ public class Constants : MonoBehaviour {
         DifficultyChange = 6,
         ItemAquired = 7,
         ItemRemoved = 8,
+        ItemEquipped = 9,
+        ItemUnequipped = 10,
     }
 
 

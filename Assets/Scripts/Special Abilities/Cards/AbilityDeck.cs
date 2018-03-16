@@ -103,8 +103,14 @@ public class AbilityDeck : MonoBehaviour {
     public void Addcard(AbilityCard card) {
         activeCards.Add(card);
 
-        if(deckType == DeckType.PrimaryCards) {
-            MainHUD.SetPlayerSlot(card, PlayerAbilitySlot.SlotType.Primary);
+        switch (deckType) {
+            case DeckType.Hand:
+                MainHUD.SetPlayerSlot(card, PlayerAbilitySlot.SlotType.Cycling);
+                break;
+
+            case DeckType.PrimaryCards:
+                MainHUD.SetPlayerSlot(card, PlayerAbilitySlot.SlotType.Primary);
+                break;
         }
     }
 

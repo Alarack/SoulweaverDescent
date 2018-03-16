@@ -52,7 +52,7 @@ public class AbilityDeckManager : MonoBehaviour {
 
         library.TransferCard(targetCard, AbilityDeck.DeckType.Hand);
 
-        MainHUD.SetPlayerSlot(targetCard);
+        //MainHUD.SetPlayerSlot(targetCard);
 
     }
 
