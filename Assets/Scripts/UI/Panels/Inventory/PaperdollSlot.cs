@@ -23,6 +23,10 @@ public class PaperdollSlot : InventorySlot, IDragHandler, IBeginDragHandler, IEn
     public override void AssignItem(Item item) {
         base.AssignItem(item);
 
+        Debug.Log("Item with ID " + item.ItemID + " has been assigned to " + slotType + " slot");
+
+        Debug.Log("My current item's id is " + CurrentItem.ItemID);
+
         fadeout.gameObject.SetActive(false);
         EventData data = new EventData();
         data.AddInt("ItemID", CurrentItem.ItemID);

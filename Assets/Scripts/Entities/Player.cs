@@ -59,14 +59,15 @@ public class Player : MovingEntity {
     private int fallHash = Animator.StringToHash("Falling");
     private int arialHash = Animator.StringToHash("Light Air Attack");
 
+
     protected override void Start() {
-        GameManager.RegisterEntity(this);
+        //GameManager.RegisterEntity(this);
         stats = new StatCollection(statTemplate);
 
         Controller = GetComponent<Controller2D>();
         MyAnimator = GetComponentInChildren<Animator>();
 
-        deckManager = GetComponent<AbilityDeckManager>();
+        deckManager = GetComponentInChildren<AbilityDeckManager>();
         deckManager.Initialize(this);
 
         inateAbiliites = GetComponentInChildren<AbilityManager>();

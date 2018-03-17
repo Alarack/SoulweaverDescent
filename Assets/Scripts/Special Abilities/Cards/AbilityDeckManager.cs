@@ -15,12 +15,25 @@ public class AbilityDeckManager : MonoBehaviour {
 
     public AbilityDeck Hand { get; private set; }
 
+
     public void Initialize(Entity owner) {
         this.owner = owner;
-        Hand = GetDeck(AbilityDeck.DeckType.Hand);
         drawTimer = new Timer(drawTime, true, DrawCardFromLibrary);
 
+        FindDecks();
         InitDecks();
+
+        Hand = GetDeck(AbilityDeck.DeckType.Hand);
+    }
+
+    private void FindDecks() {
+        AbilityDeck[] decks = GetComponentsInChildren<AbilityDeck>();
+
+        int count = decks.Length;
+
+        for (int i = 0; i < count; i++) {
+            allDecks.Add(new DeckEntry(decks[i], decks[i].deckType));
+        }
     }
 
     private void InitDecks() {
@@ -56,7 +69,6 @@ public class AbilityDeckManager : MonoBehaviour {
 
     }
 
-
     public AbilityDeck GetDeck(AbilityDeck.DeckType type) {
         int count = allDecks.Count;
 
@@ -68,12 +80,12 @@ public class AbilityDeckManager : MonoBehaviour {
         return null;
     }
 
-    //public bool IsCardInUse() {
-    //    int count = allDecks.Count;
+    //public AbilityCard FindCardInDeck(AbilityCard card) {
+    //    AbilityDeck library = GetDeck(AbilityDeck.DeckType.Library);
+    //    AbilityDeck discardPile = GetDeck(AbilityDeck.DeckType.DiscardPile);
 
-    //    for(int i = 0; i < count; i++) {
-    //        if(allDecks[i].i)
-    //    }
+    //    if(library.activeCards)
+
 
     //}
 
@@ -94,6 +106,11 @@ public class AbilityDeckManager : MonoBehaviour {
     public struct DeckEntry {
         public AbilityDeck deck;
         public AbilityDeck.DeckType deckType;
+
+        public DeckEntry(AbilityDeck deck, AbilityDeck.DeckType deckType) {
+            this.deck = deck;
+            this.deckType = deckType;
+        }
     }
 
 }

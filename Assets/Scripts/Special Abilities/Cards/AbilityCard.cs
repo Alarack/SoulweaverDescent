@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class AbilityCard {
 
+    public PlayerAbilitySlot.SlotType cardSlotType;
+
     public string cardName;
     public bool InUse { get { return IsAbilityInUse(); } }
     //public SpecialAbility ability;
@@ -16,7 +18,7 @@ public class AbilityCard {
 
     private Entity source;
 
-    public AbilityCard(SpecialAbilityData abilityData, Entity source) {
+    public AbilityCard(SpecialAbilityData abilityData, Entity source, PlayerAbilitySlot.SlotType cardSlotType = PlayerAbilitySlot.SlotType.None) {
         this.source = source;
 
         //ability = new SpecialAbility();

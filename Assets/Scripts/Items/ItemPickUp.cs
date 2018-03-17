@@ -5,12 +5,19 @@ using UnityEngine;
 public class ItemPickUp : MonoBehaviour {
 
     public LayerMask mask;
-    public Item myItem;
+    public Item MyItem { get; private set; }
 
+    public ItemData defaultItem;
 
     private void Start() {
-        if (myItem.ItemID < 1)
-            myItem.Initialize();
+        if(defaultItem != null) {
+            //Initialize(defaultItem);
+        }
+    }
+
+
+    public void Initialize(ItemData item = null) {
+        MyItem = ItemFactory.CreateItem(item);
     }
 
 
@@ -23,7 +30,15 @@ public class ItemPickUp : MonoBehaviour {
             Inventory inventory = other.gameObject.GetComponentInChildren<Inventory>();
 
             if(inventory != null) {
-                inventory.AddItem(myItem);
+                if(MyItem == null) {
+                    Initialize(defaultItem);
+                    inventory.AddItem(MyItem);
+                }
+                else {
+                    inventory.AddItem(MyItem);
+                }
+
+
             }
 
         }

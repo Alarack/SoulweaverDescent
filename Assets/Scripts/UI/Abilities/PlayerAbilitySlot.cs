@@ -7,7 +7,9 @@ public class PlayerAbilitySlot : MonoBehaviour {
 
     public enum SlotType {
         Primary,
-        Cycling
+        Cycling,
+        Passive,
+        None
     }
 
     public SlotType slotType;

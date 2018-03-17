@@ -6,9 +6,8 @@ public static class ItemFactory {
 
     public static List<Item> allItems = new List<Item>();
 
-    public static Item CreateItem() {
-        Item newItem = new Item();
-        newItem.Initialize();
+    public static Item CreateItem(ItemData item = null) {
+        Item newItem = new Item(item);
 
         return newItem;
     }

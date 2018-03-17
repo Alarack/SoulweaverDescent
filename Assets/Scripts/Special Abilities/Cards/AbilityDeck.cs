@@ -20,12 +20,13 @@ public class AbilityDeck : MonoBehaviour {
 
     public List<CardDataEntry> cardDataEntires = new List<CardDataEntry>();
 
-    public List<SpecialAbilityData> abilityData = new List<SpecialAbilityData>();
+    //public List<SpecialAbilityData> abilityData = new List<SpecialAbilityData>();
 
 
     public List<AbilityCard> activeCards = new List<AbilityCard>();
 
     public static AbilityDeck ALL_CARDS;
+    public static AbilityDeck NOT_IN_GAME;
 
     private Entity owner;
     private AbilityDeckManager deckManager;
@@ -33,6 +34,9 @@ public class AbilityDeck : MonoBehaviour {
     private void Awake() {
         if (deckType == DeckType.AllCards)
             ALL_CARDS = this;
+
+        if (deckType == DeckType.NotInGame)
+            NOT_IN_GAME = this;
     }
 
 
