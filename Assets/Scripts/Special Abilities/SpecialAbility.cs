@@ -239,7 +239,7 @@ public class SpecialAbility {
     }
 
 
-    protected bool CheckLimitations() {
+    public bool CheckLimitations() {
         switch (abilityLimitations) {
             case Constants.SpecialAbilityLimitations.None:
                 return true;
@@ -383,5 +383,6 @@ public class SpecialAbility {
             effects[i].SetUpRiders();
         }
     }
+
 
 }

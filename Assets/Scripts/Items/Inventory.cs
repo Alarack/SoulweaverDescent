@@ -4,11 +4,36 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
 
+    public List<ItemData> startingItems = new List<ItemData>();
+
     private List<Item> items = new List<Item>();
 
 
+    private PanelManager panelManager;
+    private InventoryPanel inventoryPanel;
 
 
+    public void Initialize() {
+        panelManager = MainHUD.GetPanelManager();
+        inventoryPanel = (InventoryPanel)panelManager.GetPanelByType(BasePanel.PanelType.Inventory);
+
+        SetupStartingItems();
+    }
+
+    private void SetupStartingItems() {
+        int count = startingItems.Count;
+
+        for(int i = 0; i < count; i++) {
+            Item newItem = ItemFactory.CreateItem(startingItems[i]);
+            AddItem(newItem);
+
+            PaperdollSlot targetSlot = inventoryPanel.GetPaperDollSlotByType(newItem.validSlot);
+            InventorySlot currentSlot = inventoryPanel.GetSlotByContents(newItem);
+
+            currentSlot.TransferItem(targetSlot);
+
+        }
+    }
 
 
     public Item GetItem(Item item) {

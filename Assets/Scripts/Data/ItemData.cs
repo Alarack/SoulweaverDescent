@@ -13,6 +13,6 @@ public class ItemData : ScriptableObject {
 
     public Sprite itemIcon;
 
-    public List<Item.ItemAbility> itemAbilities = new List<Item.ItemAbility>();
+    public List<Item.ItemAbilityCardData> itemCards = new List<Item.ItemAbilityCardData>();
 
 }

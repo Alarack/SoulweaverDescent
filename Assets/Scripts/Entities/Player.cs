@@ -53,6 +53,7 @@ public class Player : MovingEntity {
     private Vector2 directionalInput;
 
     protected AbilityManager inateAbiliites;
+    protected Inventory inventory;
 
 
     private int jumpHash = Animator.StringToHash("Jumping");
@@ -73,11 +74,12 @@ public class Player : MovingEntity {
         inateAbiliites = GetComponentInChildren<AbilityManager>();
         inateAbiliites.Initialize(this);
 
+        inventory = GetComponentInChildren<Inventory>();
+        inventory.Initialize();
+
         //AbilityManager2 = GetComponent<AbilityManager2>();
         //AbilityManager2.Initialize(MyAnimator, controller);
 
-        //AbilityManager = GetComponent<AbilityManager>();
-        //AbilityManager.Initialize(this);
 
         wallStickTimer = new Timer(wallStickTime, true, UnStickFromWall);
 

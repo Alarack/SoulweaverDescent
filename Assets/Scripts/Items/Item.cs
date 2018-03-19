@@ -16,6 +16,7 @@ public class Item {
 
     public int ItemID { get; private set; }
     public ItemData ItemData { get; protected set; }
+    public bool Equipped { get; protected set; }
 
 
     public Item(ItemData data = null) {
@@ -29,8 +30,18 @@ public class Item {
         else {
             Debug.LogError("[Item] created with null ItemData");
         }
-
     }
+
+    public PlayerAbilitySlot.SlotType GetCardSlotType() {
+        switch (validSlot) {
+            case PaperdollSlot.PaperdollSlotType.Weapon:
+                return PlayerAbilitySlot.SlotType.Primary;
+
+            default:
+                return PlayerAbilitySlot.SlotType.Cycling;
+        }
+    }
+
 
     private void Initialize() {
         ItemID = IDFactory.GenerateItemID();
@@ -46,12 +57,12 @@ public class Item {
     }
 
     private void CreateAblityCards() {
-        int count = ItemData.itemAbilities.Count;
+        int count = ItemData.itemCards.Count;
 
         for(int i = 0; i < count; i++) {
-            Debug.Log(GameManager.GetPlayer() + " is player");
+            AbilityCard card = CardFactory.CreateCard(ItemData.itemCards[i].abiliites, GameManager.GetPlayer(), ItemData.itemCards[i].cardSlotType, ItemID);
 
-            AbilityCard card = CardFactory.CreateCard(ItemData.itemAbilities[i].ability, GameManager.GetPlayer(), ItemData.itemAbilities[i].cardSlotType);
+            //Debug.Log(ItemData.itemCards[i].abiliites.Count + " abilities found");
 
             abilityCards.Add(card);
         }
@@ -61,6 +72,15 @@ public class Item {
     private void RegisterEventListeners() {
         EventGrid.EventManager.RegisterListener(Constants.GameEvent.ItemEquipped, OnEquip);
         EventGrid.EventManager.RegisterListener(Constants.GameEvent.ItemUnequipped, OnUnequip);
+    }
+
+
+    public void Equip(PaperdollSlot slot) {
+        Equipped = true;
+    }
+
+    public void UnEquip(PaperdollSlot slot) {
+        Equipped = false;
     }
 
     private void OnEquip(EventData data) {
@@ -86,23 +106,16 @@ public class Item {
 
 
     [System.Serializable]
-    public class ItemAbility {
-
-        public SpecialAbilityData ability;
+    public class ItemAbilityCardData {
+        public string cardName;
+        public string cardDescripiton;
         public PlayerAbilitySlot.SlotType cardSlotType;
-        public bool hasAbilityCard;
+        //public List<ItemAbilitySet> itemCardAbilities = new List<ItemAbilitySet>();
+        public List<SpecialAbilityData> abiliites = new List<SpecialAbilityData>();
 
-
-        public ItemAbility() {
+        public ItemAbilityCardData() {
 
         }
-
-        public ItemAbility(SpecialAbilityData ability, PlayerAbilitySlot.SlotType cardSlotType, bool hasAbilityCard) {
-            this.ability = ability;
-            this.cardSlotType = cardSlotType;
-            this.hasAbilityCard = hasAbilityCard;
-        }
-
     }
 
 

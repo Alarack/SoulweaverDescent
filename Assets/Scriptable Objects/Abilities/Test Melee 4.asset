@@ -13,14 +13,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Melee Test 4
   abilityIcon: {fileID: 21300092, guid: f81949b39bc707348ba6baa043763e04, type: 3}
-  useDuration: 0
+  useDuration: 0.2
   overrideOtherAbilities: 0
   procChance: 1
   effectTypes: 01000000
   recoveryType: 2
   activationMethod: 1
   abilityType: 1
-  abilityLimitations: 0
+  abilityLimitations: 2
   recoveryManager:
     recoveryTypes: 
     recoveryCooldown:
@@ -68,4 +68,4 @@ MonoBehaviour:
     statusEffects: []
   sequencedAbilities: []
   sequenceWindow: 0.5
-  animationTrigger: LightAttack
+  animationTrigger: Light Attack Air

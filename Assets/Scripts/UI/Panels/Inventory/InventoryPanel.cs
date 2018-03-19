@@ -47,6 +47,21 @@ public class InventoryPanel : BasePanel {
         return null;
     }
 
+    public PaperdollSlot GetPaperDollSlotByType(PaperdollSlot.PaperdollSlotType slotType) {
+        int count = slots.Count;
+
+        for (int i = 0; i < count; i++) {
+            if(slots[i] is PaperdollSlot) {
+                PaperdollSlot slot = slots[i] as PaperdollSlot;
+
+                if (slot.slotType == slotType && slot.IsFull == false)
+                    return slot;
+            }
+        }
+
+        return null;
+    }
+
     public InventorySlot GetSlotByContents(Item item) {
         int count = slots.Count;
 

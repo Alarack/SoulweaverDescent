@@ -9,24 +9,47 @@ public class AbilityCard {
 
     public string cardName;
     public bool InUse { get { return IsAbilityInUse(); } }
+    public int ParentItemID { get; protected set; }
     //public SpecialAbility ability;
 
-    public List<SpecialAbility> abiliites = new List<SpecialAbility>();
+    public List<SpecialAbility> abilities = new List<SpecialAbility>();
 
     public AbilityDeck currentDeck;
     public AbilityDeck previousDeck;
 
     private Entity source;
 
-    public AbilityCard(SpecialAbilityData abilityData, Entity source, PlayerAbilitySlot.SlotType cardSlotType = PlayerAbilitySlot.SlotType.None) {
-        this.source = source;
+    public AbilityCard(Entity source, PlayerAbilitySlot.SlotType cardSlotType = PlayerAbilitySlot.SlotType.None, int itemID = -1) {
+        SetupCard(source, cardSlotType, itemID);
 
+        //this.source = source;
+        //this.cardSlotType = cardSlotType;
+        //this.ParentItemID = itemID;
         //ability = new SpecialAbility();
         //ability.Initialize(source, abilityData);
 
-        AddAbility(abilityData);
+        //AddAbility(abilityData);
 
-        cardName = abilityData.abilityName;
+        //cardName = abilityData.abilityName;
+
+        
+    }
+
+    public AbilityCard(List<SpecialAbilityData> abilities, Entity source, PlayerAbilitySlot.SlotType cardSlotType = PlayerAbilitySlot.SlotType.None, int itemID = -1) {
+        SetupCard(source, cardSlotType, itemID);
+
+        int count = abilities.Count;
+        for(int i = 0; i < count; i++) {
+
+            //Debug.Log("Adding an ability " + abilities[i].abilityName + " to card");
+            AddAbility(abilities[i]);
+        }
+    }
+
+    private void SetupCard(Entity source, PlayerAbilitySlot.SlotType cardSlotType = PlayerAbilitySlot.SlotType.None, int itemID = -1) {
+        this.source = source;
+        this.cardSlotType = cardSlotType;
+        this.ParentItemID = itemID;
 
         AbilityDeck.ALL_CARDS.activeCards.Add(this);
     }
@@ -34,26 +57,54 @@ public class AbilityCard {
     public void ManagedUpdate() {
         //ability.ManagedUpdate();
 
-        int count = abiliites.Count;
+        int count = abilities.Count;
 
         for (int i = 0; i < count; i++) {
-            abiliites[i].ManagedUpdate();
+            abilities[i].ManagedUpdate();
 
         }
     }
 
-    public void Activate(Controller2D.CollisionInfo colInfo) {
+    public bool Activate(Controller2D.CollisionInfo colInfo) {
 
-        List<SpecialAbility> abilitiesToUse = DetermineAbilityToActivate(colInfo.below);
+        //List<SpecialAbility> abilitiesToUse = DetermineAbilityToActivate(colInfo.below);
 
-        int count = abilitiesToUse.Count;
+        //int count = abilitiesToUse.Count;
 
-        for(int i = 0; i < count; i++) {
-            abilitiesToUse[i].Activate();
-        }
+        //for(int i = 0; i < count; i++) {
+        //    abilitiesToUse[i].Activate();
+        //}
 
+        return ActivateAllPossibleAbilities();
 
         //ability.Activate();
+    }
+
+    private bool ActivateAllPossibleAbilities() {
+        bool finalResult = false;
+        List<bool> activationResults = new List<bool>();
+
+        int count = abilities.Count;
+
+        for (int i = 0; i < count; i++) {
+            if (AbilityDeckManager.IsCardInUse() && abilities[i].overrideOtherAbilities == false) {
+                Debug.Log("Another ability is in use, so " + abilities[i].abilityName + " cannnot activate");
+                continue;
+            }
+
+            activationResults.Add(abilities[i].Activate());
+        }
+
+        int boolCount = activationResults.Count;
+
+        for(int i = 0; i < count; i++) {
+            if(activationResults[i] == true) {
+                finalResult = true;
+                break;
+            }
+        }
+
+        return finalResult;
     }
 
     public void AddAbility(SpecialAbilityData abilityData) {
@@ -61,49 +112,49 @@ public class AbilityCard {
         newAbility.Initialize(source, abilityData);
 
 
-        abiliites.AddUnique(newAbility);
+        abilities.AddUnique(newAbility);
     }
 
     private bool IsAbilityInUse() {
-        int count = abiliites.Count;
+        int count = abilities.Count;
 
         for (int i = 0; i < count; i++) {
-            if (abiliites[i].InUse)
+            if (abilities[i].InUse)
                 return true;
         }
 
         return false;
     }
 
-    private List<SpecialAbility> DetermineAbilityToActivate(bool grounded) {
-        List<SpecialAbility> results = new List<SpecialAbility>();
+    //private List<SpecialAbility> DetermineAbilityToActivate(bool grounded) {
+    //    List<SpecialAbility> results = new List<SpecialAbility>();
 
-        int count = abiliites.Count;
+    //    int count = abiliites.Count;
 
-        for(int i = 0; i < count; i++) {
-            if (AbilityDeckManager.IsCardInUse() && abiliites[i].overrideOtherAbilities == false) {
-                Debug.Log("Another ability is in use");
-                continue;
-            }
+    //    for(int i = 0; i < count; i++) {
+    //        if (AbilityDeckManager.IsCardInUse() && abiliites[i].overrideOtherAbilities == false) {
+    //            Debug.Log("Another ability is in use");
+    //            continue;
+    //        }
 
 
-            if (abiliites[i].abilityLimitations == Constants.SpecialAbilityLimitations.None) {
-                results.Add(abiliites[i]);
-                continue;
-            }
+    //        if (abiliites[i].abilityLimitations == Constants.SpecialAbilityLimitations.None) {
+    //            results.Add(abiliites[i]);
+    //            continue;
+    //        }
 
-            if (grounded && abiliites[i].abilityLimitations == Constants.SpecialAbilityLimitations.Grounded) {
-                results.Add(abiliites[i]);
-                continue;
-            }
+    //        if (grounded && abiliites[i].abilityLimitations == Constants.SpecialAbilityLimitations.Grounded) {
+    //            results.Add(abiliites[i]);
+    //            continue;
+    //        }
 
-            if (grounded == false && abiliites[i].abilityLimitations == Constants.SpecialAbilityLimitations.Arial) {
-                results.Add(abiliites[i]);
-                continue;
-            }
-        }
+    //        if (grounded == false && abiliites[i].abilityLimitations == Constants.SpecialAbilityLimitations.Arial) {
+    //            results.Add(abiliites[i]);
+    //            continue;
+    //        }
+    //    }
 
-        return results;
-    }
+    //    return results;
+    //}
 
 }

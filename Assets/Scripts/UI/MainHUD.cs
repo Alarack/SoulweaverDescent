@@ -6,6 +6,7 @@ public class MainHUD : MonoBehaviour {
 
     public static MainHUD mainHud;
     public PlayerQuickBar quickBar;
+    public PanelManager panelManager;
     //public GameResourceDisplay resourceDisplay;
 
 
@@ -32,5 +33,9 @@ public class MainHUD : MonoBehaviour {
     
     public static PlayerAbilitySlot GetAbilitySlotByIndex(int index) {
         return mainHud.quickBar.slots[index];
+    }
+
+    public static PanelManager GetPanelManager() {
+        return mainHud.panelManager;
     }
 }

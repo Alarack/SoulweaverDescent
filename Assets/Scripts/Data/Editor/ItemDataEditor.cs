@@ -20,7 +20,7 @@ public class ItemDataEditor : Editor {
 
         EditorGUILayout.Separator();
 
-        _itemData.itemAbilities = EditorHelper.DrawExtendedList("Item Abilities", _itemData.itemAbilities, "Ability", DrawItemAbilities);
+        _itemData.itemCards = EditorHelper.DrawExtendedList("Item Abilities", _itemData.itemCards, "Ability", DrawItemCardData);
 
 
         if (GUI.changed)
@@ -29,13 +29,26 @@ public class ItemDataEditor : Editor {
     }
 
 
-
-    private Item.ItemAbility DrawItemAbilities(Item.ItemAbility entry) {
+    private Item.ItemAbilityCardData DrawItemCardData(Item.ItemAbilityCardData entry) {
+        entry.cardName = EditorGUILayout.TextField("Card Name", entry.cardName);
+        entry.cardDescripiton = EditorGUILayout.TextField("Card Description", entry.cardDescripiton);
         entry.cardSlotType = EditorHelper.EnumPopup("Ability Type", entry.cardSlotType);
-        entry.ability = EditorHelper.ObjectField<SpecialAbilityData>("Ability Data", entry.ability);
-
+        entry.abiliites = EditorHelper.DrawList("Abilities", entry.abiliites, true, null, true, DrawSpecialAbilityData);
 
         return entry;
+    }
+
+    //private Item.ItemAbilitySet DrawItemAbilities(Item.ItemAbilitySet entry) {
+    //    entry.cardSlotType = EditorHelper.EnumPopup("Ability Type", entry.cardSlotType);
+    //    entry.abiliites = EditorHelper.DrawList("Abilities", entry.abiliites, true, null, true, DrawSpecialAbilityData);
+    //    entry.hasAbilityCard = EditorGUILayout.Toggle("Has Card", entry.hasAbilityCard);
+
+    //    return entry;
+    //}
+
+    private SpecialAbilityData DrawSpecialAbilityData(List<SpecialAbilityData> abilityData, int index) {
+        SpecialAbilityData result = EditorHelper.ObjectField<SpecialAbilityData>("Ability", abilityData[index]);
+        return result;
     }
 
 

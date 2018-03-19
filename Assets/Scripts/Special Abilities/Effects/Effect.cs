@@ -39,8 +39,8 @@ public class Effect {
     public virtual void Initialize(SpecialAbility parentAbility) {
         this.parentAbility = parentAbility;
 
-        Debug.Log(parentAbility.abilityName + " is parent ability");
-        Debug.Log(parentAbility.source + " is source");
+        //Debug.Log(parentAbility.abilityName + " is parent ability");
+        //Debug.Log(parentAbility.source + " is source");
 
         animatorStateBehaviours = parentAbility.source.MyAnimator.GetBehaviours<ExampleStateBehaviour>();
         InitializeAnimatorStates();

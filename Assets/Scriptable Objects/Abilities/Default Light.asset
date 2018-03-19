@@ -20,7 +20,7 @@ MonoBehaviour:
   recoveryType: 2
   activationMethod: 1
   abilityType: 1
-  abilityLimitations: 1
+  abilityLimitations: 0
   recoveryManager:
     recoveryTypes: 
     recoveryCooldown:
