@@ -39,7 +39,8 @@ public class MovingEntity : Entity {
         MyAnimator = GetComponentInChildren<Animator>();
         stats = new StatCollection(statTemplate);
 
-        gravity = -(2 * maxJumpheight) / Mathf.Pow(timeToJumpApex, 2);
+        gravity = -(1 * maxJumpheight) / Mathf.Pow(timeToJumpApex, 2);
+
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
     }
@@ -58,7 +59,7 @@ public class MovingEntity : Entity {
     }
 
     public void ModifyVelociy(Vector2 mod) {
-        currentKnockbackVelocity += mod;
+        currentKnockbackVelocity = mod;
         knockbackActive = true;
     }
 
@@ -71,12 +72,12 @@ public class MovingEntity : Entity {
     protected void SmoothDownKnockBack() {
         if(knockbackActive == false) {
             currentKnockbackVelocity.x = Mathf.SmoothDamp(currentKnockbackVelocity.x, 0f, ref knockbackSmoothingX, 0.1f);
-            currentKnockbackVelocity.y = Mathf.SmoothDamp(currentKnockbackVelocity.y, 0f, ref knockbackSmoothingY, 0.1f);
+            currentKnockbackVelocity.y = Mathf.SmoothDamp(currentKnockbackVelocity.y, 0f, ref knockbackSmoothingY, .01f);
 
             //Debug.Log(currentKnockbackVelocity + " is the current in smooth down");
 
-            //currentKnockbackVelocity.x = Mathf.Lerp(currentKnockbackVelocity.x, 0f, 0.5f);
-            //currentKnockbackVelocity.x = Mathf.Lerp(currentKnockbackVelocity.y, 0f, 0.5f);
+            //currentKnockbackVelocity.x = Mathf.Lerp(currentKnockbackVelocity.x, 0f, .2f);
+            //currentKnockbackVelocity.y = Mathf.Lerp(currentKnockbackVelocity.y, 0f, 1f);
         }
     }
 

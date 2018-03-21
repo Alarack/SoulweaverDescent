@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using SlotType = PlayerAbilitySlot.SlotType;
+
 [System.Serializable]
 public class AbilityCard {
 
@@ -19,7 +21,7 @@ public class AbilityCard {
 
     private Entity source;
 
-    public AbilityCard(Entity source, PlayerAbilitySlot.SlotType cardSlotType = PlayerAbilitySlot.SlotType.None, int itemID = -1) {
+    public AbilityCard(Entity source, SlotType cardSlotType = SlotType.None, int itemID = -1) {
         SetupCard(source, cardSlotType, itemID);
 
         //this.source = source;
@@ -35,18 +37,18 @@ public class AbilityCard {
         
     }
 
-    public AbilityCard(List<SpecialAbilityData> abilities, Entity source, PlayerAbilitySlot.SlotType cardSlotType = PlayerAbilitySlot.SlotType.None, int itemID = -1) {
+    public AbilityCard(List<SpecialAbilityData> abilities, Entity source, SlotType cardSlotType = SlotType.None, int itemID = -1) {
         SetupCard(source, cardSlotType, itemID);
 
         int count = abilities.Count;
         for(int i = 0; i < count; i++) {
 
             //Debug.Log("Adding an ability " + abilities[i].abilityName + " to card");
-            AddAbility(abilities[i]);
+            AddAbility(abilities[i], abilities[i].sequencedAbilities);
         }
     }
 
-    private void SetupCard(Entity source, PlayerAbilitySlot.SlotType cardSlotType = PlayerAbilitySlot.SlotType.None, int itemID = -1) {
+    private void SetupCard(Entity source, SlotType cardSlotType = SlotType.None, int itemID = -1) {
         this.source = source;
         this.cardSlotType = cardSlotType;
         this.ParentItemID = itemID;
@@ -92,6 +94,8 @@ public class AbilityCard {
                 continue;
             }
 
+            //Debug.Log(abilities[i].abilityName + " is being activated from an ability card");
+
             activationResults.Add(abilities[i].Activate());
         }
 
@@ -107,9 +111,9 @@ public class AbilityCard {
         return finalResult;
     }
 
-    public void AddAbility(SpecialAbilityData abilityData) {
+    public void AddAbility(SpecialAbilityData abilityData, List<SpecialAbilityData> sequencedAbilities = null) {
         SpecialAbility newAbility = new SpecialAbility();
-        newAbility.Initialize(source, abilityData);
+        newAbility.Initialize(source, abilityData, sequencedAbilities);
 
 
         abilities.AddUnique(newAbility);

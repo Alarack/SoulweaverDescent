@@ -20,7 +20,7 @@ MonoBehaviour:
   recoveryType: 2
   activationMethod: 1
   abilityType: 1
-  abilityLimitations: 0
+  abilityLimitations: 1
   recoveryManager:
     recoveryTypes: 
     recoveryCooldown:
@@ -66,6 +66,9 @@ MonoBehaviour:
       penetrate: 0
       numPenetrations: 0
     statusEffects: []
-  sequencedAbilities: []
+  sequencedAbilities:
+  - {fileID: 11400000}
+  - {fileID: 11400000, guid: 8fa6a435eb590f14380fb939d0eea820, type: 2}
+  - {fileID: 11400000, guid: c3614ea48c841994ca9bdaa90cd6cd69, type: 2}
   sequenceWindow: 0.5
   animationTrigger: LightAttack

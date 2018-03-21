@@ -55,7 +55,8 @@ public class SpecialAbility {
                 this.sequencedAbilities.Add(sAbility);
                 sAbility.ParentAbility = this;
                 sAbility.Initialize(source, sequencedAbilities[i]);
-            }
+                //Debug.Log(sequencedAbilities[i].abilityName + " is a sequence of " + abilitydata.abilityName);
+            } 
 
             sequenceTimer = new Timer(sequenceWindow, false, ResetSequenceIndex);
         }
@@ -214,10 +215,12 @@ public class SpecialAbility {
         if (sequenceIndex >= sequencedAbilities.Count) {
             sequenceIndex = 0;
         }
+
+        Debug.Log(sequenceIndex + " is the sequence index");
     }
 
     private void ResetSequenceIndex() {
-        //Debug.Log("resetting sequence index");
+        Debug.Log("resetting sequence index");
         sequenceIndex = 0;
     }
 
@@ -274,19 +277,22 @@ public class SpecialAbility {
         if (procChance < 1f && !ProcRoll())
             return false;
 
-        Debug.Log(abilityName + " has been activated");
+        //Debug.Log(abilityName + " has been activated");
 
         if (sequencedAbilities.Count < 1) {
             for (int i = 0; i < effects.Count; i++) {
                 //targets.Clear();
                 effects[i].Activate();
             }
-
+            //Debug.Log(abilityName + " has no sequence and is activating");
             FinishActivation();
             return true;
         }
 
         targets.Clear();
+
+        Debug.Log(sequencedAbilities[sequenceIndex].abilityName + " is activating");
+
         if (sequencedAbilities[sequenceIndex].Activate()) {
             sequenceTimer.ResetTimer();
         }
