@@ -9,7 +9,7 @@ public class PanelManager : MonoBehaviour {
     public List<BasePanel> allPanels = new List<BasePanel>();
 
 
-    private void Start() {
+    private void Awake() {
         BasePanel[] panels = GetComponentsInChildren<BasePanel>();
 
         int count = panels.Length;

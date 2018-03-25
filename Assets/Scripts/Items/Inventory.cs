@@ -17,6 +17,9 @@ public class Inventory : MonoBehaviour {
         panelManager = MainHUD.GetPanelManager();
         inventoryPanel = (InventoryPanel)panelManager.GetPanelByType(BasePanel.PanelType.Inventory);
 
+        Debug.Log(panelManager + " is manager");
+        Debug.Log(inventoryPanel + " is inventory");
+
         SetupStartingItems();
     }
 
@@ -26,6 +29,8 @@ public class Inventory : MonoBehaviour {
         for(int i = 0; i < count; i++) {
             Item newItem = ItemFactory.CreateItem(startingItems[i]);
             AddItem(newItem);
+
+
 
             PaperdollSlot targetSlot = inventoryPanel.GetPaperDollSlotByType(newItem.validSlot);
             InventorySlot currentSlot = inventoryPanel.GetSlotByContents(newItem);
