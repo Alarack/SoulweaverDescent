@@ -21,6 +21,8 @@ public class LevelGenerator : MonoBehaviour {
         CreateRoom(null, maxRooms);
 
         Branch();
+
+        SealUnusedDoors();
     }
 
     public void Branch() {
@@ -32,6 +34,14 @@ public class LevelGenerator : MonoBehaviour {
 
         }
 
+    }
+
+    public void SealUnusedDoors() {
+        int count = activeRooms.Count;
+
+        for (int i = 0; i < count; i++) {
+            activeRooms[i].SealUnusedConnections();
+        }
     }
 
     private void RestartRoomCreation(Room startPoint, int roomsToMake) {

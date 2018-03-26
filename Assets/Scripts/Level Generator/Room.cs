@@ -22,7 +22,8 @@ public class Room : MonoBehaviour {
     public List<RoomConnection> totalConnections = new List<RoomConnection>();
     [Space(10)]
     public List<RoomConnection> occupiedConnections = new List<RoomConnection>();
-
+    [Space(10)]
+    public List<RoomDoor> doors = new List<RoomDoor>();
 
     public Vector2 roomSize = new Vector2(18f, 10f);
     public Vector2 roomOffset = new Vector2(0f, 0f);
@@ -39,16 +40,26 @@ public class Room : MonoBehaviour {
     }
 
     public bool IsPointInRoom(Vector2 point) {
-
-        //Debug.Log("is " + point + " within " + bounds.size);
-
-
         return bounds.Contains(point);
     }
 
-
     public bool HasFreeConnections() {
         return totalConnections != occupiedConnections;
+    }
+
+    public void SealUnusedConnections() {
+        int count = doors.Count;
+
+        for (int i = 0; i < count; i++) {
+            if (occupiedConnections.Contains(doors[i].connection)) {
+                //Debug.Log(doors[i].connection + " is already occupied");
+                continue;
+            }
+
+            //Debug.Log(doors[i].connection + " unused");
+            doors[i].Seal();
+            //occupiedConnections.Add(doors[i].connection);
+        }
     }
 
     public RoomConnection GetRandomFreeConnection() {
@@ -76,6 +87,20 @@ public class Room : MonoBehaviour {
 
 
         return freeConnection[randomIndex];
+    }
+
+
+    [System.Serializable]
+    public struct RoomDoor {
+        public GameObject door;
+        public GameObject seal;
+
+        public RoomConnection connection;
+
+        public void Seal() {
+            door.SetActive(false);
+            seal.SetActive(true);
+        }
     }
 
 
