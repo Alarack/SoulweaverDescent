@@ -69,6 +69,8 @@ MonoBehaviour:
   leftRooms:
   - {fileID: 114646925724135126, guid: bf521332148e27e438001ea7f6f9f498, type: 2}
   - {fileID: 114887597607892758, guid: b556233bd5429ca4882bcb329c3421a2, type: 2}
+  - {fileID: 114492979395856816, guid: cbd747e2660fdbe47b8b9f6b4400a181, type: 2}
   rightRooms:
   - {fileID: 114646925724135126, guid: bf521332148e27e438001ea7f6f9f498, type: 2}
   - {fileID: 114887597607892758, guid: b556233bd5429ca4882bcb329c3421a2, type: 2}
+  - {fileID: 114492979395856816, guid: cbd747e2660fdbe47b8b9f6b4400a181, type: 2}

@@ -94,7 +94,7 @@ public class AbilityCard {
                 continue;
             }
 
-            //Debug.Log(abilities[i].abilityName + " is being activated from an ability card");
+            Debug.Log(abilities[i].abilityName + " is being activated from an ability card");
 
             activationResults.Add(abilities[i].Activate());
         }

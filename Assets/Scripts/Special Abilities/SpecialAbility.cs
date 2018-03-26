@@ -216,11 +216,11 @@ public class SpecialAbility {
             sequenceIndex = 0;
         }
 
-        Debug.Log(sequenceIndex + " is the sequence index");
+        //Debug.Log(sequenceIndex + " is the sequence index");
     }
 
     private void ResetSequenceIndex() {
-        Debug.Log("resetting sequence index");
+        //Debug.Log("resetting sequence index");
         sequenceIndex = 0;
     }
 
@@ -262,12 +262,15 @@ public class SpecialAbility {
         }
     }
     public virtual bool Activate() {
-        if (CheckLimitations() == false)
+        if (CheckLimitations() == false) {
+            Debug.Log(abilityName + " could not activate due to its limitations");
             return false;
+        }
 
-        if (PlayAnimation() == false)
+        if (PlayAnimation() == false) {
+            Debug.Log(abilityName + " could not activate because its animation was already playing");
             return false;
-
+        }
 
         if (recoveryMethod != null && !recoveryMethod.Ready) {
              Debug.Log(abilityName + " is not ready");
@@ -291,7 +294,7 @@ public class SpecialAbility {
 
         targets.Clear();
 
-        Debug.Log(sequencedAbilities[sequenceIndex].abilityName + " is activating");
+        //Debug.Log(sequencedAbilities[sequenceIndex].abilityName + " is activating");
 
         if (sequencedAbilities[sequenceIndex].Activate()) {
             sequenceTimer.ResetTimer();

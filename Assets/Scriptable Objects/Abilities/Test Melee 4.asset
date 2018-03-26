@@ -20,7 +20,7 @@ MonoBehaviour:
   recoveryType: 2
   activationMethod: 1
   abilityType: 1
-  abilityLimitations: 2
+  abilityLimitations: 1
   recoveryManager:
     recoveryTypes: 
     recoveryCooldown:
@@ -55,17 +55,17 @@ MonoBehaviour:
           m_Bits: 4096
         range: 0
         prefabName: DefaultHit
-      effectDamage: 10
+      effectDamage: -10
       scaleFromBaseDamage: 0
       percentOfBaseDamage: 1
       burstAttack: 0
       burstNumber: 0
       burstInterval: 0
-      impactEffectName: 
-      fireEffectName: 
+      impactEffectName: Test Hit
+      fireEffectName: VFX_CurvedSlash
       penetrate: 0
       numPenetrations: 0
     statusEffects: []
   sequencedAbilities: []
   sequenceWindow: 0.5
-  animationTrigger: Light Attack Air
+  animationTrigger: LightAttack
