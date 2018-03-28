@@ -137,11 +137,11 @@ public class LevelGenerator : MonoBehaviour {
                 break;
 
             case Room.RoomConnection.Bottom:
-                result -= new Vector2(0f, lastRoom.roomSize.y) + nextRoom.roomOffset - lastRoom.roomOffset;
+                result -= new Vector2(0f, lastRoom.roomSize.y) - nextRoom.roomOffset + lastRoom.roomOffset;
                 break;
 
             case Room.RoomConnection.Left:
-                result -= new Vector2(lastRoom.roomSize.x, 0f) + nextRoom.roomOffset - lastRoom.roomOffset;
+                result -= new Vector2(lastRoom.roomSize.x, 0f) - nextRoom.roomOffset + lastRoom.roomOffset;
                 break;
 
             case Room.RoomConnection.Right:
@@ -150,7 +150,7 @@ public class LevelGenerator : MonoBehaviour {
         }
 
         for(int i = 0; i < activeRooms.Count; i++) {
-            if (activeRooms[i].IsPointInRoom(result)) {
+            if (activeRooms[i].IsPointInRoom(result) || activeRooms[i].DoesRoomOverlap(nextRoom.roomSize, result)) {
                 //Debug.Log(lastRoom.gameObject.name + " is inside " + activeRooms[i].gameObject.name);
                 return Vector2.zero;
             }

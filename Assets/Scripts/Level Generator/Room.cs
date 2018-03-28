@@ -43,6 +43,13 @@ public class Room : MonoBehaviour {
         return bounds.Contains(point);
     }
 
+    public bool DoesRoomOverlap(Vector2 roomSize, Vector2 point) {
+        Vector2 testHeight = new Vector2(point.x + roomSize.x /2, point.y);
+        Vector2 testWidth = new Vector2(point.x, point.y + roomSize.y /2);
+
+        return IsPointInRoom(testHeight) || IsPointInRoom(testWidth);
+    }
+
     public bool HasFreeConnections() {
         return totalConnections != occupiedConnections;
     }
