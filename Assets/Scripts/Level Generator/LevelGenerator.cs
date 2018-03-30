@@ -88,7 +88,7 @@ public class LevelGenerator : MonoBehaviour {
         Room.RoomConnection oppositeConnection = GetOppositeConnection(targetConnection);
 
         if (targetConnection == Room.RoomConnection.None) {
-            Debug.Log(lastRoom.gameObject.name + " has no free connections");
+            //Debug.Log(lastRoom.gameObject.name + " has no free connections");
             RestartRoomCreation(GetRandomRoomWithFreeConnections(), roomsToMake);
             return;
         }
@@ -98,8 +98,8 @@ public class LevelGenerator : MonoBehaviour {
         spawnLocation = GetSpawnLocationFromConnection(lastRoom, targetConnection, nextRoom);
 
         if(spawnLocation == Vector2.zero) {
-            Debug.Log("Map ran into itself");
-            RestartRoomCreation(GetRandomRoomWithFreeConnections(), roomsToMake);
+            //Debug.Log("Map ran into itself");
+            RestartRoomCreation(GetRandomRoomWithFreeConnections(), roomsToMake -1);
             return;
         }
 

@@ -8,6 +8,9 @@ public class MainHUD : MonoBehaviour {
     public PlayerQuickBar quickBar;
     public PanelManager panelManager;
     //public GameResourceDisplay resourceDisplay;
+    public Camera mainCamera;
+
+    private CameraFollow cameraFollow;
 
 
     private void Awake() {
@@ -19,6 +22,15 @@ public class MainHUD : MonoBehaviour {
 
     private void Start() {
         //resourceDisplay.Initialize();
+        cameraFollow = mainCamera.GetComponent<CameraFollow>();
+    }
+
+    public static void SetCameraBounds(Vector2 minX, Vector2 maxX, Vector2 minY, Vector2 maxY) {
+        mainHud.cameraFollow.minXPos = minX;
+        mainHud.cameraFollow.maxXPos = maxX;
+        mainHud.cameraFollow.maxYPos = maxY;
+        mainHud.cameraFollow.minYPos = minY;
+
     }
 
     public static void SetPlayerSlot(AbilityCard abilityCard, PlayerAbilitySlot.SlotType slotType = PlayerAbilitySlot.SlotType.Cycling) {
