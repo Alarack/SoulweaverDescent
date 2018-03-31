@@ -6,15 +6,19 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour {
 
     private Player player;
+    private PanelManager panelManager;
 
     private void Start() {
         player = GetComponent<Player>();
+        panelManager = MainHUD.GetPanelManager();
     }
 
     private void Update() {
+        if (panelManager.IsPanelOpen())
+            return;
+
         Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         player.SetDirectionalInput(directionalInput);
-
 
         if (Input.GetButtonDown("Jump")) {
             player.OnJumpInputDown();
@@ -29,14 +33,6 @@ public class PlayerInput : MonoBehaviour {
                 player.OnAbilitySlotKeyPressed(i);
             }
         }
-
-        //if (Input.GetButtonDown("Fire1")) {
-        //    player.AbilityManager2.LightAttack();
-        //}
-
-        //if (Input.GetButtonDown("Fire2")) {
-
-        //}
 
     }
 

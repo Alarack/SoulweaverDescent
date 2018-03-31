@@ -17,8 +17,8 @@ public class Inventory : MonoBehaviour {
         panelManager = MainHUD.GetPanelManager();
         inventoryPanel = (InventoryPanel)panelManager.GetPanelByType(BasePanel.PanelType.Inventory);
 
-        Debug.Log(panelManager + " is manager");
-        Debug.Log(inventoryPanel + " is inventory");
+        //Debug.Log(panelManager + " is manager");
+        //Debug.Log(inventoryPanel + " is inventory");
 
         SetupStartingItems();
     }

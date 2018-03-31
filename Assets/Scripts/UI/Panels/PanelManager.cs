@@ -23,6 +23,10 @@ public class PanelManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.I)) {
             TogglePanel(BasePanel.PanelType.Inventory);
         }
+
+        if (Input.GetKeyDown(KeyCode.M)) {
+            TogglePanel(BasePanel.PanelType.Map);
+        }
     }
 
     public void OpenPanel(string panelName) {

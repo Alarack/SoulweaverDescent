@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour {
 
     public int maxRooms = 10;
+    [Range(1, 5)]
     public int passes = 3;
 
     public List<Room> activeRooms = new List<Room>();
@@ -16,7 +17,6 @@ public class LevelGenerator : MonoBehaviour {
     public Room[] leftRooms;
     public Room[] rightRooms;
 
-
     public void Start() {
         CreateRoom(null, maxRooms);
 
@@ -27,7 +27,9 @@ public class LevelGenerator : MonoBehaviour {
 
     public void Branch() {
 
-        for(int i = 0; i < passes; i++) {
+        float count = Mathf.Max(1, passes - 1);
+
+        for(int i = 0; i < count; i++) {
             Room startPoint = GetRandomRoomWithFreeConnections();
 
             CreateRoom(startPoint, maxRooms);
@@ -50,12 +52,14 @@ public class LevelGenerator : MonoBehaviour {
             return;
         }
 
+        
         CreateRoom(startPoint, roomsToMake);
     }
 
 
     public void CreateRoom(Room lastRoom = null, int roomsToMake = 10) {
         Vector2 spawnLocation = Vector2.zero;
+        Vector2 mapLocation = Vector2.zero;
         GameObject newRoomGameObject;
         Room newRoom = null;
 
@@ -70,6 +74,8 @@ public class LevelGenerator : MonoBehaviour {
 
             newRoom = newRoomGameObject.GetComponent<Room>();
             newRoom.roomPosition = spawnLocation;
+            newRoom.mapPosition = mapLocation;
+            newRoom.roomType = Room.RoomType.Start;
 
             activeRooms.Add(newRoom);
 
@@ -88,18 +94,24 @@ public class LevelGenerator : MonoBehaviour {
         Room.RoomConnection oppositeConnection = GetOppositeConnection(targetConnection);
 
         if (targetConnection == Room.RoomConnection.None) {
-            //Debug.Log(lastRoom.gameObject.name + " has no free connections");
+            Debug.Log(lastRoom.gameObject.name + " has no free connections");
+            Debug.Log("Restarting with " + roomsToMake + " ropms");
             RestartRoomCreation(GetRandomRoomWithFreeConnections(), roomsToMake);
             return;
         }
 
 
         Room nextRoom = GetRandomRoom(oppositeConnection);
-        spawnLocation = GetSpawnLocationFromConnection(lastRoom, targetConnection, nextRoom);
+        RoomPositionInfo roomPosInfo = GetSpawnLocationFromConnection(lastRoom, targetConnection, nextRoom);
+
+        spawnLocation = roomPosInfo.spawnPosition;
+        mapLocation = roomPosInfo.mapPosition;
+
 
         if(spawnLocation == Vector2.zero) {
             //Debug.Log("Map ran into itself");
-            RestartRoomCreation(GetRandomRoomWithFreeConnections(), roomsToMake -1);
+            //Debug.Log("Restarting with " + roomsToMake + " ropms");
+            RestartRoomCreation(GetRandomRoomWithFreeConnections(), roomsToMake);
             return;
         }
 
@@ -111,6 +123,7 @@ public class LevelGenerator : MonoBehaviour {
 
         newRoom = newRoomGameObject.GetComponent<Room>();
         newRoom.roomPosition = spawnLocation;
+        newRoom.mapPosition = mapLocation;
 
         newRoom.occupiedConnections.Add(oppositeConnection);
         lastRoom.occupiedConnections.Add(targetConnection);
@@ -122,42 +135,54 @@ public class LevelGenerator : MonoBehaviour {
         //}
 
         if (roomsToMake > 0) {
+            //Debug.Log(roomsToMake + " more rooms to make");
             CreateRoom(newRoom, roomsToMake - 1);
         }
 
 
     }
 
-    private Vector2 GetSpawnLocationFromConnection(Room lastRoom, Room.RoomConnection connection, Room nextRoom) {
+    private RoomPositionInfo GetSpawnLocationFromConnection(Room lastRoom, Room.RoomConnection connection, Room nextRoom) {
         Vector2 result = lastRoom.roomPosition;
+        Vector2 mapPos = lastRoom.mapPosition;
+
+        RoomPositionInfo roomPosInfo = new RoomPositionInfo();
 
         switch (connection) {
             case Room.RoomConnection.Top:
                 result += new Vector2(0f, lastRoom.roomSize.y) + nextRoom.roomOffset - lastRoom.roomOffset;
+                mapPos += new Vector2(0f, 60f);
                 break;
 
             case Room.RoomConnection.Bottom:
                 result -= new Vector2(0f, lastRoom.roomSize.y) - nextRoom.roomOffset + lastRoom.roomOffset;
+                mapPos -= new Vector2(0f, 60f);
                 break;
 
             case Room.RoomConnection.Left:
                 result -= new Vector2(lastRoom.roomSize.x, 0f) - nextRoom.roomOffset + lastRoom.roomOffset;
+                mapPos -= new Vector2(60f, 0f);
                 break;
 
             case Room.RoomConnection.Right:
                 result += new Vector2(lastRoom.roomSize.x, 0f) + nextRoom.roomOffset - lastRoom.roomOffset;
+                mapPos += new Vector2(60f, 0f);
                 break;
         }
 
         for(int i = 0; i < activeRooms.Count; i++) {
             if (activeRooms[i].IsPointInRoom(result) || activeRooms[i].DoesRoomOverlap(nextRoom.roomSize, result)) {
                 //Debug.Log(lastRoom.gameObject.name + " is inside " + activeRooms[i].gameObject.name);
-                return Vector2.zero;
+                roomPosInfo.ResetPos();
+                //return Vector2.zero;
+                return roomPosInfo;
             }
         }
 
+        roomPosInfo.spawnPosition = result;
+        roomPosInfo.mapPosition = mapPos;
 
-        return result;
+        return roomPosInfo;
     }
 
     private Room.RoomConnection GetOppositeConnection(Room.RoomConnection connection) {
@@ -229,5 +254,20 @@ public class LevelGenerator : MonoBehaviour {
     }
 
 
+
+    private struct RoomPositionInfo {
+        public Vector2 spawnPosition;
+        public Vector2 mapPosition;
+
+        public RoomPositionInfo(Vector2 spawnPosition, Vector2 mapPosition) {
+            this.spawnPosition = spawnPosition;
+            this.mapPosition = mapPosition;
+        }
+
+        public void ResetPos() {
+            spawnPosition = Vector2.zero;
+            mapPosition = Vector2.zero;
+        }
+    }
 
 }

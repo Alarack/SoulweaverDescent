@@ -9,6 +9,7 @@ public class MainHUD : MonoBehaviour {
     public PanelManager panelManager;
     //public GameResourceDisplay resourceDisplay;
     public Camera mainCamera;
+    public Camera uiCam;
 
     private CameraFollow cameraFollow;
 

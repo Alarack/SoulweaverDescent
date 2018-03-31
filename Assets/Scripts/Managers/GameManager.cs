@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager gameManager;
 
+    [Header("Level Generator")]
+    public LevelGenerator levelGenerator;
+
     //[Header("Items")]
     //public ItemPools itemPools;
 
@@ -116,6 +119,10 @@ public class GameManager : MonoBehaviour {
 
     public static void ReturnToMainMenu() {
         SceneManager.LoadScene(gameManager.mainMenuScene);
+    }
+
+    public static LevelGenerator GetLevelGenerator() {
+        return gameManager.levelGenerator;
     }
 
     //public static List<DifficultyData.DifficultyEntry> GetDifficultyEntries() {

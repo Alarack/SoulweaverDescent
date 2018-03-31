@@ -30,9 +30,13 @@ public class Room : MonoBehaviour {
 
     [HideInInspector]
     public Vector2 roomPosition;
+    public Vector2 mapPosition;
 
     [HideInInspector]
     public Bounds bounds;
+
+    public bool Explored { get; private set; }
+    public bool Occupied { get; private set; }
 
 
     public void Awake() {
@@ -132,6 +136,16 @@ public class Room : MonoBehaviour {
 
         MainHUD.SetCameraBounds(minXPos, maxXPos, minYPos, maxYPos);
 
+        Explored = true;
+        Occupied = true;
+
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if (other.gameObject.tag != "Player")
+            return;
+
+        Occupied = false;
     }
 
 

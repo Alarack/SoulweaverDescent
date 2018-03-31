@@ -8,6 +8,7 @@ public class BasePanel : MonoBehaviour {
     public enum PanelType {
         InGameMenu = 0,
         Inventory = 1,
+        Map = 2,
     }
 
     [Header("Panel Type")]

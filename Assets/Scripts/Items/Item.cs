@@ -91,7 +91,7 @@ public class Item {
         if (item != this)
             return;
 
-        Debug.Log(itemName + " has been equipped");
+        //Debug.Log(itemName + " has been equipped");
     }
 
     private void OnUnequip(EventData data) {
@@ -101,7 +101,7 @@ public class Item {
         if (item != this)
             return;
 
-        Debug.Log(itemName + " has been unequipped");
+        //Debug.Log(itemName + " has been unequipped");
     }
 
 
