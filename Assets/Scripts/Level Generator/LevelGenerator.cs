@@ -8,14 +8,16 @@ public class LevelGenerator : MonoBehaviour {
     [Range(1, 5)]
     public int passes = 3;
 
+    public RoomCollectionData roomCollection;
+
     public List<Room> activeRooms = new List<Room>();
 
-    public Room[] starterRooms;
+    //public Room[] startRooms;
 
-    public Room[] topRooms;
-    public Room[] bottomRooms;
-    public Room[] leftRooms;
-    public Room[] rightRooms;
+    //public Room[] topRooms;
+    //public Room[] bottomRooms;
+    //public Room[] leftRooms;
+    //public Room[] rightRooms;
 
     public void Start() {
         CreateRoom(null, maxRooms);
@@ -68,7 +70,7 @@ public class LevelGenerator : MonoBehaviour {
         if (lastRoom == null) {
             spawnLocation = Vector2.zero;
 
-            newRoomGameObject = Instantiate(starterRooms[GetRandomRoomIndex(starterRooms)].gameObject, spawnLocation, Quaternion.identity) as GameObject;
+            newRoomGameObject = Instantiate(roomCollection.startRooms[GetRandomRoomIndex(roomCollection.startRooms)].gameObject, spawnLocation, Quaternion.identity) as GameObject;
             string numberName1 = newRoomGameObject.name + " " + activeRooms.Count;
             newRoomGameObject.name = numberName1;
 
@@ -94,8 +96,8 @@ public class LevelGenerator : MonoBehaviour {
         Room.RoomConnection oppositeConnection = GetOppositeConnection(targetConnection);
 
         if (targetConnection == Room.RoomConnection.None) {
-            Debug.Log(lastRoom.gameObject.name + " has no free connections");
-            Debug.Log("Restarting with " + roomsToMake + " ropms");
+            //Debug.Log(lastRoom.gameObject.name + " has no free connections");
+            //Debug.Log("Restarting with " + roomsToMake + " ropms");
             RestartRoomCreation(GetRandomRoomWithFreeConnections(), roomsToMake);
             return;
         }
@@ -207,16 +209,16 @@ public class LevelGenerator : MonoBehaviour {
     private Room GetRandomRoom(Room.RoomConnection connection = Room.RoomConnection.None) {
         switch (connection) {
             case Room.RoomConnection.Top:
-                return topRooms[GetRandomRoomIndex(topRooms)];
+                return roomCollection.topRooms[GetRandomRoomIndex(roomCollection.topRooms)];
 
             case Room.RoomConnection.Bottom:
-                return bottomRooms[GetRandomRoomIndex(bottomRooms)];
+                return roomCollection.bottomRooms[GetRandomRoomIndex(roomCollection.bottomRooms)];
 
             case Room.RoomConnection.Left:
-                return leftRooms[GetRandomRoomIndex(leftRooms)];
+                return roomCollection.leftRooms[GetRandomRoomIndex(roomCollection.leftRooms)];
 
             case Room.RoomConnection.Right:
-                return rightRooms[GetRandomRoomIndex(rightRooms)];
+                return roomCollection.rightRooms[GetRandomRoomIndex(roomCollection.rightRooms)];
 
         }
 
@@ -247,8 +249,8 @@ public class LevelGenerator : MonoBehaviour {
 
 
 
-    private int GetRandomRoomIndex(Room[] rooms) {
-        int randomIndex = Random.Range(0, rooms.Length);
+    private int GetRandomRoomIndex(List<Room> rooms) {
+        int randomIndex = Random.Range(0, rooms.Count);
 
         return randomIndex;
     }

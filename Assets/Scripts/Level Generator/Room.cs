@@ -18,18 +18,29 @@ public class Room : MonoBehaviour {
         None = 4,
     }
 
+    [Header("Room Type")]
     public RoomType roomType;
+
+    [Header("Room Connections")]
     public List<RoomConnection> totalConnections = new List<RoomConnection>();
-    [Space(10)]
+
+    [HideInInspector]
     public List<RoomConnection> occupiedConnections = new List<RoomConnection>();
-    [Space(10)]
+
+    [Header("Doors")]
     public List<RoomDoor> doors = new List<RoomDoor>();
 
+    [Header("Size and offset")]
     public Vector2 roomSize = new Vector2(18f, 10f);
     public Vector2 roomOffset = new Vector2(0f, 0f);
 
+    [Header("Entry Positions")]
+    public List<Transform> entryPositions = new List<Transform>();
+
     [HideInInspector]
     public Vector2 roomPosition;
+
+    [HideInInspector]
     public Vector2 mapPosition;
 
     [HideInInspector]
@@ -37,10 +48,17 @@ public class Room : MonoBehaviour {
 
     public bool Explored { get; private set; }
     public bool Occupied { get; private set; }
-
+    public RoomEntranceManager roomEntranceManager { get; private set; }
 
     public void Awake() {
         bounds = new Bounds(transform.localPosition, roomSize);
+        roomEntranceManager = GetComponentInChildren<RoomEntranceManager>();
+    }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Return) && Occupied && roomEntranceManager != null) {
+            roomEntranceManager.ToggleDoors();
+        }
     }
 
     public bool IsPointInRoom(Vector2 point) {
@@ -83,16 +101,33 @@ public class Room : MonoBehaviour {
     }
 
     public void SealUnusedConnections() {
-        int count = doors.Count;
+
+        if (roomEntranceManager == null)
+            return;
+
+        int count = roomEntranceManager.entrances.Length;
 
         for (int i = 0; i < count; i++) {
-            if (occupiedConnections.Contains(doors[i].connection)) {
-                //Debug.Log(doors[i].connection + " is already occupied");
+            if (occupiedConnections.Contains(roomEntranceManager.entrances[i].connection))
                 continue;
-            }
-            doors[i].Seal();
+
+            roomEntranceManager.entrances[i].Seal();
         }
+        
+
+
+        //int count = doors.Count;
+
+        //for (int i = 0; i < count; i++) {
+        //    if (occupiedConnections.Contains(doors[i].connection)) {
+        //        //Debug.Log(doors[i].connection + " is already occupied");
+        //        continue;
+        //    }
+        //    doors[i].Seal();
+        //}
     }
+
+    
 
     public RoomConnection GetRandomFreeConnection() {
         int randomIndex;
@@ -118,6 +153,9 @@ public class Room : MonoBehaviour {
         return freeConnection[randomIndex];
     }
 
+    public Vector2 GetNearestEntryPosition(Vector2 location) {
+        return Finder.GetNearestPoint(entryPositions, location).position;
+    }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag != "Player")
@@ -138,6 +176,13 @@ public class Room : MonoBehaviour {
 
         Explored = true;
         Occupied = true;
+
+        if(entryPositions.Count > 0)
+            other.transform.position = GetNearestEntryPosition(other.transform.position);
+
+        if(roomType != RoomType.Start) {
+            roomEntranceManager.CloseDoors();
+        }
 
     }
 
