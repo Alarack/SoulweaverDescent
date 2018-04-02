@@ -30,7 +30,7 @@ public class PaperdollSlot : InventorySlot, IDragHandler, IBeginDragHandler, IEn
         fadeout.gameObject.SetActive(false);
         EventData data = new EventData();
         data.AddInt("ItemID", CurrentItem.ItemID);
-        EventGrid.EventManager.SendEvent(Constants.GameEvent.ItemEquipped, data);
+        SystemGrid.EventManager.SendEvent(Constants.GameEvent.ItemEquipped, data);
 
     }
 
@@ -38,7 +38,7 @@ public class PaperdollSlot : InventorySlot, IDragHandler, IBeginDragHandler, IEn
         fadeout.gameObject.SetActive(true);
         EventData data = new EventData();
         data.AddInt("ItemID", CurrentItem.ItemID);
-        EventGrid.EventManager.SendEvent(Constants.GameEvent.ItemUnequipped, data);
+        SystemGrid.EventManager.SendEvent(Constants.GameEvent.ItemUnequipped, data);
 
         base.RemoveItem();
     }

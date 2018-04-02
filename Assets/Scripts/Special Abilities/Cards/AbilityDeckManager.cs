@@ -29,8 +29,8 @@ public class AbilityDeckManager : MonoBehaviour {
     }
 
     private void RegisterEventListeners() {
-        EventGrid.EventManager.RegisterListener(Constants.GameEvent.ItemEquipped, OnItemEquipped);
-        EventGrid.EventManager.RegisterListener(Constants.GameEvent.ItemUnequipped, OnItemUnequipped);
+        SystemGrid.EventManager.RegisterListener(Constants.GameEvent.ItemEquipped, OnItemEquipped);
+        SystemGrid.EventManager.RegisterListener(Constants.GameEvent.ItemUnequipped, OnItemUnequipped);
     }
 
 

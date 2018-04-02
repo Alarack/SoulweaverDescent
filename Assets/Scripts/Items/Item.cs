@@ -70,8 +70,8 @@ public class Item {
 
 
     private void RegisterEventListeners() {
-        EventGrid.EventManager.RegisterListener(Constants.GameEvent.ItemEquipped, OnEquip);
-        EventGrid.EventManager.RegisterListener(Constants.GameEvent.ItemUnequipped, OnUnequip);
+        SystemGrid.EventManager.RegisterListener(Constants.GameEvent.ItemEquipped, OnEquip);
+        SystemGrid.EventManager.RegisterListener(Constants.GameEvent.ItemUnequipped, OnUnequip);
     }
 
 

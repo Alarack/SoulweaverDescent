@@ -6117,17 +6117,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomType: 0
   totalConnections: 0000000001000000
-  occupiedConnections: 
-  doors:
-  - door: {fileID: 1202505950818266}
-    seal: {fileID: 1405638608690682}
-    connection: 0
-  - door: {fileID: 1903444151656140}
-    seal: {fileID: 1821398985503908}
-    connection: 1
   roomSize: {x: 36, y: 10}
   roomOffset: {x: 9, y: 0}
-  roomPosition: {x: 0, y: 0}
+  entryPositions: []
+  occupiedConnections: 
+  mapPosition: {x: 0, y: 0}
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}

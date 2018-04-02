@@ -18,12 +18,12 @@ public class InventoryPanel : BasePanel {
     }
 
     private void RegisterEventListeners() {
-        EventGrid.EventManager.RegisterListener(Constants.GameEvent.ItemAquired, OnItemAquired);
-        EventGrid.EventManager.RegisterListener(Constants.GameEvent.ItemRemoved, OnItemRemoved);
+        SystemGrid.EventManager.RegisterListener(Constants.GameEvent.ItemAquired, OnItemAquired);
+        SystemGrid.EventManager.RegisterListener(Constants.GameEvent.ItemRemoved, OnItemRemoved);
     }
 
     private void OnDisable() {
-        EventGrid.EventManager.RemoveMyListeners(this);
+        SystemGrid.EventManager.RemoveMyListeners(this);
     }
 
     private void GetSlots() {

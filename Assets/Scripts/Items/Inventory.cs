@@ -64,7 +64,7 @@ public class Inventory : MonoBehaviour {
             EventData data = new EventData();
             data.AddInt("ItemID", item.ItemID);
 
-            EventGrid.EventManager.SendEvent(Constants.GameEvent.ItemAquired, data);
+            SystemGrid.EventManager.SendEvent(Constants.GameEvent.ItemAquired, data);
         }
     }
 
@@ -73,7 +73,7 @@ public class Inventory : MonoBehaviour {
             EventData data = new EventData();
             data.AddInt("ItemID", item.ItemID);
 
-            EventGrid.EventManager.SendEvent(Constants.GameEvent.ItemRemoved, data);
+            SystemGrid.EventManager.SendEvent(Constants.GameEvent.ItemRemoved, data);
         }
     }
 

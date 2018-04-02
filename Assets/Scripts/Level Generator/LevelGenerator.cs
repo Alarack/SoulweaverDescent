@@ -75,15 +75,12 @@ public class LevelGenerator : MonoBehaviour {
             newRoomGameObject.name = numberName1;
 
             newRoom = newRoomGameObject.GetComponent<Room>();
-            newRoom.roomPosition = spawnLocation;
             newRoom.mapPosition = mapLocation;
             newRoom.roomType = Room.RoomType.Start;
 
-            activeRooms.Add(newRoom);
+            newRoom.Initialize();
 
-            //if(activeRooms.Count < maxRooms) {
-            //    CreateRoom(newRoom);
-            //}
+            activeRooms.Add(newRoom);
 
             if(roomsToMake > 0) {
                 CreateRoom(newRoom, roomsToMake - 1);
@@ -117,35 +114,27 @@ public class LevelGenerator : MonoBehaviour {
             return;
         }
 
-
-
         newRoomGameObject = Instantiate(nextRoom.gameObject, spawnLocation, Quaternion.identity) as GameObject;
         string numberName = newRoomGameObject.name + " " + activeRooms.Count;
         newRoomGameObject.name = numberName;
 
         newRoom = newRoomGameObject.GetComponent<Room>();
-        newRoom.roomPosition = spawnLocation;
         newRoom.mapPosition = mapLocation;
-
         newRoom.occupiedConnections.Add(oppositeConnection);
         lastRoom.occupiedConnections.Add(targetConnection);
 
-        activeRooms.Add(newRoom);
+        newRoom.Initialize();
 
-        //if (activeRooms.Count < maxRooms) {
-        //    CreateRoom(newRoom);
-        //}
+        activeRooms.Add(newRoom);
 
         if (roomsToMake > 0) {
             //Debug.Log(roomsToMake + " more rooms to make");
             CreateRoom(newRoom, roomsToMake - 1);
         }
-
-
     }
 
     private RoomPositionInfo GetSpawnLocationFromConnection(Room lastRoom, Room.RoomConnection connection, Room nextRoom) {
-        Vector2 result = lastRoom.roomPosition;
+        Vector2 result = lastRoom.transform.position;
         Vector2 mapPos = lastRoom.mapPosition;
 
         RoomPositionInfo roomPosInfo = new RoomPositionInfo();

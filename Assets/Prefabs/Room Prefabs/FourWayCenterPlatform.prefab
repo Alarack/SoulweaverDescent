@@ -1107,6 +1107,7 @@ GameObject:
   - component: {fileID: 114646925724135126}
   - component: {fileID: 61168283799883498}
   - component: {fileID: 50897176328580400}
+  - component: {fileID: 114895139639999542}
   m_Layer: 0
   m_Name: FourWayCenterPlatform
   m_TagString: Untagged
@@ -4413,20 +4414,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomType: 0
   totalConnections: 00000000010000000200000003000000
-  occupiedConnections: 
-  doors:
-  - door: {fileID: 0}
-    seal: {fileID: 0}
-    connection: 0
-  - door: {fileID: 0}
-    seal: {fileID: 0}
-    connection: 1
-  - door: {fileID: 0}
-    seal: {fileID: 0}
-    connection: 2
-  - door: {fileID: 0}
-    seal: {fileID: 0}
-    connection: 3
   roomSize: {x: 18, y: 10}
   roomOffset: {x: 0, y: 0}
   entryPositions:
@@ -4434,7 +4421,7 @@ MonoBehaviour:
   - {fileID: 4824119232853912}
   - {fileID: 4912664412229256}
   - {fileID: 4088761625013108}
-  roomPosition: {x: 0, y: 0}
+  occupiedConnections: 
   mapPosition: {x: 0, y: 0}
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -4794,6 +4781,19 @@ MonoBehaviour:
   doorCollider: {fileID: 61246846890609290}
   seal: {fileID: 1449280216753516}
   doorClosingTween: {fileID: 114532298985497330}
+--- !u!114 &114895139639999542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1754482680900984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40e344dae9b8664388ff8531526f719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleObjectives: 01000000020000000300000004000000
+  activeObjective: 0
 --- !u!212 &212002349297749798
 SpriteRenderer:
   m_ObjectHideFlags: 1

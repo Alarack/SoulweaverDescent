@@ -696,6 +696,7 @@ GameObject:
   - component: {fileID: 114569522077224610}
   - component: {fileID: 61342275202470174}
   - component: {fileID: 50808827540698726}
+  - component: {fileID: 114802246216206430}
   m_Layer: 0
   m_Name: Left Right Bottom Doors
   m_TagString: Untagged
@@ -4064,20 +4065,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomType: 0
   totalConnections: 0200000003000000
-  occupiedConnections: 
-  doors:
-  - door: {fileID: 0}
-    seal: {fileID: 0}
-    connection: 2
-  - door: {fileID: 0}
-    seal: {fileID: 0}
-    connection: 3
   roomSize: {x: 18, y: 10}
   roomOffset: {x: 0, y: 3}
   entryPositions:
   - {fileID: 4982811805661828}
   - {fileID: 4958245830962828}
-  roomPosition: {x: 0, y: 0}
+  occupiedConnections: 
   mapPosition: {x: 0, y: 0}
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -4114,6 +4107,19 @@ MonoBehaviour:
   doorCollider: {fileID: 61974795583404148}
   seal: {fileID: 1741378462136702}
   doorClosingTween: {fileID: 114436068444006826}
+--- !u!114 &114802246216206430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1587553821497180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40e344dae9b8664388ff8531526f719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleObjectives: 01000000020000000300000004000000
+  activeObjective: 0
 --- !u!114 &114996905985621796
 MonoBehaviour:
   m_ObjectHideFlags: 1

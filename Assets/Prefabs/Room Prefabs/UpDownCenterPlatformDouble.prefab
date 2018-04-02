@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 114658377183891682}
   - component: {fileID: 61673271688963678}
   - component: {fileID: 50433589468904620}
+  - component: {fileID: 114424563421270998}
   m_Layer: 0
   m_Name: UpDownCenterPlatformDouble
   m_TagString: Untagged
@@ -5881,6 +5882,19 @@ MonoBehaviour:
   doorCollider: {fileID: 61560753009623138}
   seal: {fileID: 1859219993904800}
   doorClosingTween: {fileID: 114580751316725440}
+--- !u!114 &114424563421270998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172435507655902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40e344dae9b8664388ff8531526f719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleObjectives: 01000000020000000300000004000000
+  activeObjective: 0
 --- !u!114 &114580751316725440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6003,20 +6017,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomType: 0
   totalConnections: 0000000001000000
-  occupiedConnections: 
-  doors:
-  - door: {fileID: 0}
-    seal: {fileID: 0}
-    connection: 0
-  - door: {fileID: 0}
-    seal: {fileID: 0}
-    connection: 1
   roomSize: {x: 18, y: 20}
   roomOffset: {x: 0, y: 5}
   entryPositions:
   - {fileID: 4004089450967452}
   - {fileID: 4122853245997068}
-  roomPosition: {x: 0, y: 0}
+  occupiedConnections: 
   mapPosition: {x: 0, y: 0}
   bounds:
     m_Center: {x: 0, y: 0, z: 0}

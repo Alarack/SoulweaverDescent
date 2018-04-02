@@ -2046,6 +2046,7 @@ GameObject:
   - component: {fileID: 114492979395856816}
   - component: {fileID: 61635500019077668}
   - component: {fileID: 50364229644091680}
+  - component: {fileID: 114363722368886044}
   m_Layer: 0
   m_Name: DoubleTallWide Left Right
   m_TagString: Untagged
@@ -8102,6 +8103,19 @@ MonoBehaviour:
   doorCollider: {fileID: 61336590155840670}
   seal: {fileID: 1678479491154372}
   doorClosingTween: {fileID: 114080077183892896}
+--- !u!114 &114363722368886044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751541995970136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40e344dae9b8664388ff8531526f719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleObjectives: 01000000020000000300000004000000
+  activeObjective: 0
 --- !u!114 &114375239320262746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8127,20 +8141,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomType: 0
   totalConnections: 0200000003000000
-  occupiedConnections: 
-  doors:
-  - door: {fileID: 0}
-    seal: {fileID: 0}
-    connection: 2
-  - door: {fileID: 0}
-    seal: {fileID: 0}
-    connection: 3
   roomSize: {x: 36, y: 20}
   roomOffset: {x: 9, y: 0}
   entryPositions:
   - {fileID: 4081208269790262}
   - {fileID: 4505867976959540}
-  roomPosition: {x: 0, y: 0}
+  occupiedConnections: 
   mapPosition: {x: 0, y: 0}
   bounds:
     m_Center: {x: 0, y: 0, z: 0}

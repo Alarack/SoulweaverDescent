@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Constants : MonoBehaviour {
 
+    public enum FloorDepthName {
+        Entry = 0,
+        Descent = 1,
+        Depths = 2,
+        Abyss = 3
+    }
+
+
     public enum EntityFacing {
         Right,
         Left,

@@ -21,14 +21,11 @@ public class Room : MonoBehaviour {
     [Header("Room Type")]
     public RoomType roomType;
 
+    [Header("Floor Depth")]
+    public Constants.FloorDepthName floorDepth;
+
     [Header("Room Connections")]
     public List<RoomConnection> totalConnections = new List<RoomConnection>();
-
-    [HideInInspector]
-    public List<RoomConnection> occupiedConnections = new List<RoomConnection>();
-
-    [Header("Doors")]
-    public List<RoomDoor> doors = new List<RoomDoor>();
 
     [Header("Size and offset")]
     public Vector2 roomSize = new Vector2(18f, 10f);
@@ -38,7 +35,7 @@ public class Room : MonoBehaviour {
     public List<Transform> entryPositions = new List<Transform>();
 
     [HideInInspector]
-    public Vector2 roomPosition;
+    public List<RoomConnection> occupiedConnections = new List<RoomConnection>();
 
     [HideInInspector]
     public Vector2 mapPosition;
@@ -48,16 +45,31 @@ public class Room : MonoBehaviour {
 
     public bool Explored { get; private set; }
     public bool Occupied { get; private set; }
-    public RoomEntranceManager roomEntranceManager { get; private set; }
+    public RoomEntranceManager RoomEntranceManager { get; private set; }
+
+    private RoomEnemyManager roomEnemyManager;
+    private RoomObjectiveManager roomObjectiveManager;
 
     public void Awake() {
         bounds = new Bounds(transform.localPosition, roomSize);
-        roomEntranceManager = GetComponentInChildren<RoomEntranceManager>();
+        RoomEntranceManager = GetComponentInChildren<RoomEntranceManager>();
+        roomEnemyManager = GetComponent<RoomEnemyManager>();
+        roomObjectiveManager = GetComponent<RoomObjectiveManager>();
+
+    }
+
+    public void Initialize() {
+        if (roomEnemyManager != null)
+            roomEnemyManager.Initialize(this);
+
+        if (roomObjectiveManager != null) 
+            roomObjectiveManager.Initialize(this, roomEnemyManager);
+
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Return) && Occupied && roomEntranceManager != null) {
-            roomEntranceManager.ToggleDoors();
+        if (Input.GetKeyDown(KeyCode.Return) && Occupied && RoomEntranceManager != null) {
+            RoomEntranceManager.ToggleDoors();
         }
     }
 
@@ -101,33 +113,20 @@ public class Room : MonoBehaviour {
     }
 
     public void SealUnusedConnections() {
-
-        if (roomEntranceManager == null)
+        if (RoomEntranceManager == null) {
+            Debug.LogError(gameObject.name + " does not have a Room Entrance Manager Script");
             return;
+        }
 
-        int count = roomEntranceManager.entrances.Length;
+        int count = RoomEntranceManager.entrances.Length;
 
         for (int i = 0; i < count; i++) {
-            if (occupiedConnections.Contains(roomEntranceManager.entrances[i].connection))
+            if (occupiedConnections.Contains(RoomEntranceManager.entrances[i].connection))
                 continue;
 
-            roomEntranceManager.entrances[i].Seal();
+            RoomEntranceManager.entrances[i].Seal();
         }
-        
-
-
-        //int count = doors.Count;
-
-        //for (int i = 0; i < count; i++) {
-        //    if (occupiedConnections.Contains(doors[i].connection)) {
-        //        //Debug.Log(doors[i].connection + " is already occupied");
-        //        continue;
-        //    }
-        //    doors[i].Seal();
-        //}
     }
-
-    
 
     public RoomConnection GetRandomFreeConnection() {
         int randomIndex;
@@ -161,18 +160,20 @@ public class Room : MonoBehaviour {
         if (other.gameObject.tag != "Player")
             return;
 
-        Debug.Log("Player Has entered " + gameObject.name);
+        //Debug.Log("Player Has entered " + gameObject.name);
 
-        Vector2 hafCamSize = new Vector2(9f, 5f);
+        //Vector2 hafCamSize = new Vector2(9f, 5f);
 
-        Vector2 minXPos = roomPosition - new Vector2((roomSize.x /2) - hafCamSize.x, 0f);
-        Vector2 minYPos = roomPosition - new Vector2(0f, (roomSize.y / 2) - hafCamSize.y);
+        //Vector2 minXPos = (Vector2)transform.position - new Vector2((roomSize.x /2) - hafCamSize.x, 0f);
+        //Vector2 minYPos = (Vector2)transform.position - new Vector2(0f, (roomSize.y / 2) - hafCamSize.y);
 
-        Vector2 maxXPos = roomPosition + new Vector2((roomSize.x / 2) - hafCamSize.x, 0f);
-        Vector2 maxYPos = roomPosition + new Vector2(0f, (roomSize.y / 2) - hafCamSize.y);
+        //Vector2 maxXPos = (Vector2)transform.position + new Vector2((roomSize.x / 2) - hafCamSize.x, 0f);
+        //Vector2 maxYPos = (Vector2)transform.position + new Vector2(0f, (roomSize.y / 2) - hafCamSize.y);
 
 
-        MainHUD.SetCameraBounds(minXPos, maxXPos, minYPos, maxYPos);
+        //MainHUD.SetCameraBounds(minXPos, maxXPos, minYPos, maxYPos);
+
+        SetCameraConfines();
 
         Explored = true;
         Occupied = true;
@@ -181,9 +182,20 @@ public class Room : MonoBehaviour {
             other.transform.position = GetNearestEntryPosition(other.transform.position);
 
         if(roomType != RoomType.Start) {
-            roomEntranceManager.CloseDoors();
+            RoomEntranceManager.CloseDoors();
         }
 
+    }
+
+    private void SetCameraConfines() {
+        Vector2 hafCamSize = new Vector2(9f, 5f);
+
+        Vector2 minXPos = (Vector2)transform.position - new Vector2((roomSize.x / 2) - hafCamSize.x, 0f);
+        Vector2 minYPos = (Vector2)transform.position - new Vector2(0f, (roomSize.y / 2) - hafCamSize.y);
+        Vector2 maxXPos = (Vector2)transform.position + new Vector2((roomSize.x / 2) - hafCamSize.x, 0f);
+        Vector2 maxYPos = (Vector2)transform.position + new Vector2(0f, (roomSize.y / 2) - hafCamSize.y);
+
+        MainHUD.SetCameraBounds(minXPos, maxXPos, minYPos, maxYPos);
     }
 
     private void OnTriggerExit2D(Collider2D other) {

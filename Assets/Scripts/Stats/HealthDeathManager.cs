@@ -20,40 +20,40 @@ public class HealthDeathManager : MonoBehaviour {
 
         //lootManager = GetComponent<LootManager>();
 
-        //RegisterListeners();
+        RegisterListeners();
     }
 
-    //protected virtual void RegisterListeners() {
-    //    EventGrid.EventManager.RegisterListener(Constants.GameEvent.StatChanged, OnStatChanged);
-    //}
+    protected virtual void RegisterListeners() {
+        SystemGrid.EventManager.RegisterListener(Constants.GameEvent.StatChanged, OnStatChanged);
+    }
 
-    //public virtual void RemoveListeners() {
-    //    EventGrid.EventManager.RemoveMyListeners(this);
-    //}
+    public virtual void RemoveListeners() {
+        SystemGrid.EventManager.RemoveMyListeners(this);
+    }
 
-    //protected void OnStatChanged(EventData data) {
-    //    Constants.BaseStatType stat = (Constants.BaseStatType)data.GetInt("Stat");
-    //    Entity target = data.GetMonoBehaviour("Target") as Entity;
-    //    Entity cause = data.GetMonoBehaviour("Cause") as Entity;
+    protected void OnStatChanged(EventData data) {
+        StatCollection.BaseStat.BaseStatType stat = (StatCollection.BaseStat.BaseStatType)data.GetInt("Stat");
+        Entity target = data.GetMonoBehaviour("Target") as Entity;
+        Entity cause = data.GetMonoBehaviour("Cause") as Entity;
 
-    //    if (target != owner)
-    //        return;
+        if (target != owner)
+            return;
 
-    //    if(stat == Constants.BaseStatType.Health) {
-    //        //Debug.Log(owner.stats.GetStatModifiedValue(Constants.BaseStatType.Health) + " is the health of " + owner.gameObject.name);
+        if (stat == StatCollection.BaseStat.BaseStatType.Health) {
+            //Debug.Log(owner.stats.GetStatModifiedValue(Constants.BaseStatType.Health) + " is the health of " + owner.gameObject.name);
 
-    //        float currentHealth = owner.stats.GetStatModifiedValue(Constants.BaseStatType.Health);
-    //        float maxHealth = owner.stats.GetStatMaxValue(Constants.BaseStatType.Health);
+            float currentHealth = owner.stats.GetStatModifiedValue(StatCollection.BaseStat.BaseStatType.Health);
+            float maxHealth = owner.stats.GetStatMaxValue(StatCollection.BaseStat.BaseStatType.Health);
 
-    //        UpdateHealthBar(currentHealth, maxHealth);
+            //UpdateHealthBar(currentHealth, maxHealth);
 
-    //        if (currentHealth <= 0f) {
-    //            if(!cheat)
-    //                Die(cause);
-    //        }
-    //    }
+            if (currentHealth <= 0f) {
+                if (!cheat)
+                    Die(cause);
+            }
+        }
 
-    //}
+    }
 
     private void UpdateHealthBar(float currentHealth, float maxHealth) {
         //if (healthBar == null)
@@ -68,10 +68,10 @@ public class HealthDeathManager : MonoBehaviour {
 
     protected virtual void Die(Entity cause = null) {
         ShowDeathEffect();
-        //GameManager.UnregisterEntity(owner);
+        GameManager.UnregisterEntity(owner);
         //owner.UnregisterListeners();
 
-        ////Debug.Log(owner.gameObject + " has died");
+        Debug.Log(owner.gameObject + " has died");
 
         //if(owner.gameObject.tag == "Player") {
         //    GameManager.ReturnToMainMenu();
@@ -82,11 +82,11 @@ public class HealthDeathManager : MonoBehaviour {
         //    lootManager.SpawnLoot();
         //}
 
-        //EventData data = new EventData();
-        //data.AddMonoBehaviour("Target", owner);
-        //data.AddMonoBehaviour("Cause", cause);
+        EventData data = new EventData();
+        data.AddMonoBehaviour("Target", owner);
+        data.AddMonoBehaviour("Cause", cause);
 
-        //EventGrid.EventManager.SendEvent(Constants.GameEvent.EntityDied, data);
+        SystemGrid.EventManager.SendEvent(Constants.GameEvent.EntityDied, data);
 
 
         Destroy(owner.gameObject);
