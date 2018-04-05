@@ -3,6 +3,7 @@ public class IDFactory {
 
     public static int EntityID;
     public static int AbilityID;
+    public static int ItemID;
 
     public static int GenerateEntityID() {
 
@@ -15,6 +16,12 @@ public class IDFactory {
         AbilityID++;
 
         return AbilityID;
+    }
+
+    public static int GenerateItemID() {
+        ItemID++;
+
+        return ItemID;
     }
 
 }

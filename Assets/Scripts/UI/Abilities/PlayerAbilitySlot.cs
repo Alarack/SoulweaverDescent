@@ -7,7 +7,9 @@ public class PlayerAbilitySlot : MonoBehaviour {
 
     public enum SlotType {
         Primary,
-        Cycling
+        Cycling,
+        Passive,
+        None
     }
 
     public SlotType slotType;
@@ -34,7 +36,7 @@ public class PlayerAbilitySlot : MonoBehaviour {
 
     public void SetSlotAbility(AbilityCard abilityCard) {
         this.CurrentCard = abilityCard;
-        recovery = abilityCard.abiliites[0].Recovery;
+        recovery = abilityCard.abilities[0].Recovery;
         SetIcon();
 
         //Debug.Log("Adding a card to a slot");
@@ -52,7 +54,7 @@ public class PlayerAbilitySlot : MonoBehaviour {
     }
 
     private void SetIcon() {
-        icon.sprite = CurrentCard.abiliites[0].abilityIcon;
+        icon.sprite = CurrentCard.abilities[0].abilityIcon;
     }
 
     private void Update() {

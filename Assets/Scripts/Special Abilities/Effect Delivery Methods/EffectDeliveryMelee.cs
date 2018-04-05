@@ -11,7 +11,7 @@ public class EffectDeliveryMelee : EffectDeliveryMethod {
 
     public override void Initialize(SpecialAbility parentAbility, EffectAttack parentEffect) {
         base.Initialize(parentAbility, parentEffect);
-        EventGrid.EventManager.RegisterListener(Constants.GameEvent.AnimationEvent, OnAnimationEvent);
+        SystemGrid.EventManager.RegisterListener(Constants.GameEvent.AnimationEvent, OnAnimationEvent);
     }
 
 

@@ -87,7 +87,7 @@ public class ExampleStateBehaviour : StateMachineBehaviour {
 
         //Debug.Log(owner.entityName + " " + owner.SessionID + " is sending an animation event");
 
-        EventGrid.EventManager.SendEvent(Constants.GameEvent.AnimationEvent, data);
+        SystemGrid.EventManager.SendEvent(Constants.GameEvent.AnimationEvent, data);
     }
 
 }

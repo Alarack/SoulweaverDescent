@@ -30,11 +30,12 @@ public class Entity : MonoBehaviour {
 
     protected virtual void Awake() {
         SessionID = IDFactory.GenerateEntityID();
+        GameManager.RegisterEntity(this);
     }
 
 
     protected virtual void Start() {
-        GameManager.RegisterEntity(this);
+       // GameManager.RegisterEntity(this);
     }
 
 }

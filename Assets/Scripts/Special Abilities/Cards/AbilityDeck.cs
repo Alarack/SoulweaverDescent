@@ -18,14 +18,15 @@ public class AbilityDeck : MonoBehaviour {
     public DeckType deckType;
     public int maxSize;
 
-    public List<CardDataEntry> cardDataEntires = new List<CardDataEntry>();
+    //public List<CardDataEntry> cardDataEntires = new List<CardDataEntry>();
 
-    public List<SpecialAbilityData> abilityData = new List<SpecialAbilityData>();
+    //public List<SpecialAbilityData> abilityData = new List<SpecialAbilityData>();
 
 
     public List<AbilityCard> activeCards = new List<AbilityCard>();
 
     public static AbilityDeck ALL_CARDS;
+    public static AbilityDeck NOT_IN_GAME;
 
     private Entity owner;
     private AbilityDeckManager deckManager;
@@ -33,6 +34,9 @@ public class AbilityDeck : MonoBehaviour {
     private void Awake() {
         if (deckType == DeckType.AllCards)
             ALL_CARDS = this;
+
+        if (deckType == DeckType.NotInGame)
+            NOT_IN_GAME = this;
     }
 
 
@@ -64,22 +68,22 @@ public class AbilityDeck : MonoBehaviour {
         //    Addcard(card);
         //}
 
-        int count1 = cardDataEntires.Count;
+        //int count1 = cardDataEntires.Count;
 
-        for(int i =0; i < count1; i++) {
-            AbilityCard card = CardFactory.CreateCard(cardDataEntires[i].data[0], owner);
-            card.currentDeck = this;
-            Addcard(card);
+        //for(int i =0; i < count1; i++) {
+        //    AbilityCard card = CardFactory.CreateCard(cardDataEntires[i].data[0], owner);
+        //    card.currentDeck = this;
+        //    Addcard(card);
 
-            int count2 = cardDataEntires[i].data.Count;
-            if (count2 > 1) {
-                for (int j = 1; j < count2; j++) {
-                    card.AddAbility(cardDataEntires[i].data[j]);
-                }
-            }
+        //    int count2 = cardDataEntires[i].data.Count;
+        //    if (count2 > 1) {
+        //        for (int j = 1; j < count2; j++) {
+        //            card.AddAbility(cardDataEntires[i].data[j]);
+        //        }
+        //    }
 
 
-        }
+        //}
 
 
     }
@@ -101,33 +105,43 @@ public class AbilityDeck : MonoBehaviour {
     }
 
     public void Addcard(AbilityCard card) {
+        if (card.currentDeck == null)
+            card.currentDeck = this;
+
         activeCards.Add(card);
 
-        if(deckType == DeckType.PrimaryCards) {
-            MainHUD.SetPlayerSlot(card, PlayerAbilitySlot.SlotType.Primary);
+        switch (deckType) {
+            case DeckType.Hand:
+                MainHUD.SetPlayerSlot(card, PlayerAbilitySlot.SlotType.Cycling);
+                break;
+
+            case DeckType.PrimaryCards:
+                MainHUD.SetPlayerSlot(card, PlayerAbilitySlot.SlotType.Primary);
+                break;
         }
     }
 
     public void RemoveCard(AbilityCard card) {
 
         if (activeCards.RemoveIfContains(card)) {
-            if (deckType == DeckType.Hand) {
-                MainHUD.ClearPlayerSlot(card);
+            switch (deckType) {
+                case DeckType.Hand:
+                    MainHUD.ClearPlayerSlot(card, PlayerAbilitySlot.SlotType.Cycling);
+                    break;
+
+                case DeckType.PrimaryCards:
+                    MainHUD.ClearPlayerSlot(card, PlayerAbilitySlot.SlotType.Primary);
+                    break;
             }
         }
     }
 
     public void PlayCard(AbilityCard card, Controller2D.CollisionInfo colInfo, PlayerAbilitySlot.SlotType slotType = PlayerAbilitySlot.SlotType.Cycling) {
 
-        //if(AbilityDeckManager.IsCardInUse() == true && card.ability.overrideOtherAbilities == false) {
-        //    Debug.Log("Another Ability is in use");
-        //    return;
-        //}
-
-        card.Activate(colInfo);
-
-        if(slotType == PlayerAbilitySlot.SlotType.Cycling)
-            TransferCard(card, DeckType.Library);
+        if (card.Activate(colInfo)) {
+            if (slotType == PlayerAbilitySlot.SlotType.Cycling)
+                TransferCard(card, DeckType.Library);
+        }
     }
 
 
@@ -139,13 +153,25 @@ public class AbilityDeck : MonoBehaviour {
             return;
         }
 
+        TransferCard(card, targetDeck);
+    }
+
+    public void TransferCard(AbilityCard card, AbilityDeck destination) {
+        if (destination.IsDeckFull()) {
+            Debug.Log("Target Deck is Full");
+            return;
+        }
+
+        //Debug.Log("transfering a card from " + card.currentDeck.deckType + " to " + destination.deckType);
+
         card.previousDeck = this;
-        card.currentDeck = targetDeck;
+        card.currentDeck = destination;
 
         RemoveCard(card);
-        targetDeck.Addcard(card);
-
+        destination.Addcard(card);
     }
+
+
 
 
 

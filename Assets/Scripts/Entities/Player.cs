@@ -53,30 +53,33 @@ public class Player : MovingEntity {
     private Vector2 directionalInput;
 
     protected AbilityManager inateAbiliites;
+    protected Inventory inventory;
 
 
     private int jumpHash = Animator.StringToHash("Jumping");
     private int fallHash = Animator.StringToHash("Falling");
     private int arialHash = Animator.StringToHash("Light Air Attack");
 
+
     protected override void Start() {
-        GameManager.RegisterEntity(this);
+        //GameManager.RegisterEntity(this);
         stats = new StatCollection(statTemplate);
 
         Controller = GetComponent<Controller2D>();
         MyAnimator = GetComponentInChildren<Animator>();
 
-        deckManager = GetComponent<AbilityDeckManager>();
+        deckManager = GetComponentInChildren<AbilityDeckManager>();
         deckManager.Initialize(this);
 
         inateAbiliites = GetComponentInChildren<AbilityManager>();
         inateAbiliites.Initialize(this);
 
+        inventory = GetComponentInChildren<Inventory>();
+        inventory.Initialize();
+
         //AbilityManager2 = GetComponent<AbilityManager2>();
         //AbilityManager2.Initialize(MyAnimator, controller);
 
-        //AbilityManager = GetComponent<AbilityManager>();
-        //AbilityManager.Initialize(this);
 
         wallStickTimer = new Timer(wallStickTime, true, UnStickFromWall);
 

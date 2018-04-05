@@ -18,16 +18,22 @@ public class InventoryPanel : BasePanel {
     }
 
     private void RegisterEventListeners() {
-        EventGrid.EventManager.RegisterListener(Constants.GameEvent.ItemAquired, OnItemAquired);
-        EventGrid.EventManager.RegisterListener(Constants.GameEvent.ItemRemoved, OnItemRemoved);
+        SystemGrid.EventManager.RegisterListener(Constants.GameEvent.ItemAquired, OnItemAquired);
+        SystemGrid.EventManager.RegisterListener(Constants.GameEvent.ItemRemoved, OnItemRemoved);
     }
 
     private void OnDisable() {
-        EventGrid.EventManager.RemoveMyListeners(this);
+        SystemGrid.EventManager.RemoveMyListeners(this);
     }
 
     private void GetSlots() {
         slots = GetComponentsInChildren<InventorySlot>().ToList();
+
+        int count = slots.Count;
+
+        for (int i = 0; i < count; i++) {
+            slots[i].Initialize(this);
+        }
     }
 
     public InventorySlot GetFirstEmptySlot() {
@@ -36,6 +42,21 @@ public class InventoryPanel : BasePanel {
         for(int i = 0; i < count; i++) {
             if (slots[i].IsFull == false)
                 return slots[i];
+        }
+
+        return null;
+    }
+
+    public PaperdollSlot GetPaperDollSlotByType(PaperdollSlot.PaperdollSlotType slotType) {
+        int count = slots.Count;
+
+        for (int i = 0; i < count; i++) {
+            if(slots[i] is PaperdollSlot) {
+                PaperdollSlot slot = slots[i] as PaperdollSlot;
+
+                if (slot.slotType == slotType && slot.IsFull == false)
+                    return slot;
+            }
         }
 
         return null;
@@ -52,7 +73,6 @@ public class InventoryPanel : BasePanel {
         return null;
     }
 
-
     #region EVENTS
 
     public void OnItemAquired(EventData data) {
@@ -62,16 +82,24 @@ public class InventoryPanel : BasePanel {
             return;
         }
 
-        Item item = data.GetMonoBehaviour("Item") as Item;
+        int itemID = data.GetInt("ItemID");
+        Item item = ItemFactory.GetItemByID(itemID);
+
+        
+        if(GetSlotByContents(item) != null) {
+            Debug.LogError("[Inventory Panel] an item " + item.itemName + " is already being displayed");
+            return;
+        }
 
         emptySlot.AssignItem(item);
     }
 
     public void OnItemRemoved(EventData data) {
-        Item item = data.GetMonoBehaviour("Item") as Item;
+        int itemID = data.GetInt("ItemID");
+        Item item = ItemFactory.GetItemByID(itemID);
         InventorySlot currentSlot = GetSlotByContents(item);
 
-        currentSlot.RemoveItem(item);
+        currentSlot.RemoveItem();
     }
 
     #endregion

@@ -55,7 +55,8 @@ public class SpecialAbility {
                 this.sequencedAbilities.Add(sAbility);
                 sAbility.ParentAbility = this;
                 sAbility.Initialize(source, sequencedAbilities[i]);
-            }
+                //Debug.Log(sequencedAbilities[i].abilityName + " is a sequence of " + abilitydata.abilityName);
+            } 
 
             sequenceTimer = new Timer(sequenceWindow, false, ResetSequenceIndex);
         }
@@ -214,6 +215,8 @@ public class SpecialAbility {
         if (sequenceIndex >= sequencedAbilities.Count) {
             sequenceIndex = 0;
         }
+
+        //Debug.Log(sequenceIndex + " is the sequence index");
     }
 
     private void ResetSequenceIndex() {
@@ -239,7 +242,7 @@ public class SpecialAbility {
     }
 
 
-    protected bool CheckLimitations() {
+    public bool CheckLimitations() {
         switch (abilityLimitations) {
             case Constants.SpecialAbilityLimitations.None:
                 return true;
@@ -259,12 +262,15 @@ public class SpecialAbility {
         }
     }
     public virtual bool Activate() {
-        if (CheckLimitations() == false)
+        if (CheckLimitations() == false) {
+            Debug.Log(abilityName + " could not activate due to its limitations");
             return false;
+        }
 
-        if (PlayAnimation() == false)
+        if (PlayAnimation() == false) {
+            Debug.Log(abilityName + " could not activate because its animation was already playing");
             return false;
-
+        }
 
         if (recoveryMethod != null && !recoveryMethod.Ready) {
              Debug.Log(abilityName + " is not ready");
@@ -274,19 +280,22 @@ public class SpecialAbility {
         if (procChance < 1f && !ProcRoll())
             return false;
 
-        Debug.Log(abilityName + " has been activated");
+        //Debug.Log(abilityName + " has been activated");
 
         if (sequencedAbilities.Count < 1) {
             for (int i = 0; i < effects.Count; i++) {
                 //targets.Clear();
                 effects[i].Activate();
             }
-
+            //Debug.Log(abilityName + " has no sequence and is activating");
             FinishActivation();
             return true;
         }
 
         targets.Clear();
+
+        //Debug.Log(sequencedAbilities[sequenceIndex].abilityName + " is activating");
+
         if (sequencedAbilities[sequenceIndex].Activate()) {
             sequenceTimer.ResetTimer();
         }
@@ -383,5 +392,6 @@ public class SpecialAbility {
             effects[i].SetUpRiders();
         }
     }
+
 
 }

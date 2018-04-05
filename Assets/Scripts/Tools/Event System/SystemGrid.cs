@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class EventGrid {
+public static class SystemGrid {
 
     private static EventManager _eventManger = new EventManager();
 

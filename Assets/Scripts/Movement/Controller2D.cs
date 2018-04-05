@@ -29,10 +29,6 @@ public class Controller2D : RaycastController {
         collisionInfo.velocityOld = moveAmount;
         PlayerInput = input;
 
-        //Debug.Log(knockbackVector + " is the knockback vector");
-
-        moveAmount += knockbackVector;
-
         if (moveAmount.y < 0f) {
             DescendSlope(ref moveAmount);
         }
@@ -41,19 +37,44 @@ public class Controller2D : RaycastController {
             collisionInfo.facingDirection = (int)Mathf.Sign(moveAmount.x);
         }
 
-        CheckHorizontalCollisions(ref moveAmount);
 
+
+        CheckHorizontalCollisions(ref moveAmount);
 
         if (moveAmount.y != 0f)
             CheckVerticalCollisions(ref moveAmount);
 
 
-        
+
+        CheckKnockBack(ref knockbackVector, moveAmount);
+        moveAmount += knockbackVector;
+
+
+        CheckHorizontalCollisions(ref moveAmount);
+
+        if (moveAmount.y != 0f)
+            CheckVerticalCollisions(ref moveAmount);
+
+
+
+
+
+
 
         transform.Translate(moveAmount);
 
         if (standingOnPlatform == true)
             collisionInfo.below = true;
+    }
+
+    private void CheckKnockBack(ref Vector2 knockbackVector, Vector2 moveAmount) {
+        if (collisionInfo.below || collisionInfo.left || collisionInfo.right || moveAmount.y > 0f) {
+            knockbackVector.y = 0f;
+        }
+
+        if (collisionInfo.left || collisionInfo.right) {
+            knockbackVector.x = 0f;
+        }
     }
 
     private void CheckVerticalCollisions(ref Vector2 moveAmount) {

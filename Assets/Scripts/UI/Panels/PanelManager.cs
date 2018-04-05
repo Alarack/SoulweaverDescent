@@ -9,7 +9,7 @@ public class PanelManager : MonoBehaviour {
     public List<BasePanel> allPanels = new List<BasePanel>();
 
 
-    private void Start() {
+    private void Awake() {
         BasePanel[] panels = GetComponentsInChildren<BasePanel>();
 
         int count = panels.Length;
@@ -21,7 +21,11 @@ public class PanelManager : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.I)) {
-            OpenPanel(BasePanel.PanelType.Inventory);
+            TogglePanel(BasePanel.PanelType.Inventory);
+        }
+
+        if (Input.GetKeyDown(KeyCode.M)) {
+            TogglePanel(BasePanel.PanelType.Map);
         }
     }
 
@@ -39,6 +43,10 @@ public class PanelManager : MonoBehaviour {
 
     public void OpenPanel(BasePanel.PanelType panelType) {
         GetPanelByType(panelType).Open();
+    }
+
+    public void TogglePanel(BasePanel.PanelType panelType) {
+        GetPanelByType(panelType).Toggle();
     }
 
     public BasePanel GetPanelByType(BasePanel.PanelType type) {
