@@ -161,18 +161,6 @@ public class Room : MonoBehaviour {
             return;
 
         //Debug.Log("Player Has entered " + gameObject.name);
-
-        //Vector2 hafCamSize = new Vector2(9f, 5f);
-
-        //Vector2 minXPos = (Vector2)transform.position - new Vector2((roomSize.x /2) - hafCamSize.x, 0f);
-        //Vector2 minYPos = (Vector2)transform.position - new Vector2(0f, (roomSize.y / 2) - hafCamSize.y);
-
-        //Vector2 maxXPos = (Vector2)transform.position + new Vector2((roomSize.x / 2) - hafCamSize.x, 0f);
-        //Vector2 maxYPos = (Vector2)transform.position + new Vector2(0f, (roomSize.y / 2) - hafCamSize.y);
-
-
-        //MainHUD.SetCameraBounds(minXPos, maxXPos, minYPos, maxYPos);
-
         SetCameraConfines();
 
         Explored = true;
@@ -188,12 +176,12 @@ public class Room : MonoBehaviour {
     }
 
     private void SetCameraConfines() {
-        Vector2 hafCamSize = new Vector2(9f, 5f);
+        Vector2 halfCamSize = new Vector2(9f, 5f);
 
-        Vector2 minXPos = (Vector2)transform.position - new Vector2((roomSize.x / 2) - hafCamSize.x, 0f);
-        Vector2 minYPos = (Vector2)transform.position - new Vector2(0f, (roomSize.y / 2) - hafCamSize.y);
-        Vector2 maxXPos = (Vector2)transform.position + new Vector2((roomSize.x / 2) - hafCamSize.x, 0f);
-        Vector2 maxYPos = (Vector2)transform.position + new Vector2(0f, (roomSize.y / 2) - hafCamSize.y);
+        Vector2 minXPos = (Vector2)transform.position - new Vector2((roomSize.x / 2) - halfCamSize.x, 0f);
+        Vector2 minYPos = (Vector2)transform.position - new Vector2(0f, (roomSize.y / 2) - halfCamSize.y);
+        Vector2 maxXPos = (Vector2)transform.position + new Vector2((roomSize.x / 2) - halfCamSize.x, 0f);
+        Vector2 maxYPos = (Vector2)transform.position + new Vector2(0f, (roomSize.y / 2) - halfCamSize.y);
 
         MainHUD.SetCameraBounds(minXPos, maxXPos, minYPos, maxYPos);
     }
