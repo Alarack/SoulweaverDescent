@@ -5,7 +5,13 @@ using UnityEditor;
 
 public class RoomBackgroundGenerator : MonoBehaviour {
 
-    public List<Sprite> backgroundStones = new List<Sprite>();
+    public RoomSpriteCollectionData spriteCollectionData;
+    public RoomSpriteCollectionData.TileSet tileSet;
+    public RoomSpriteCollectionData.TileType tileType;
+
+
+
+    //public List<Sprite> backgroundStones = new List<Sprite>();
     public GameObject stoneTemplate;
     public Transform backgroundHolder;
     public int width;
@@ -21,9 +27,15 @@ public class RoomBackgroundGenerator : MonoBehaviour {
     }
 
     public Sprite RandomSprite() {
-        int randomIndex = Random.Range(0, backgroundStones.Count);
+        List<Sprite> sprites = spriteCollectionData.GetSpritesByTileSetAndType(tileSet, tileType);
 
-        return backgroundStones[randomIndex];
+
+        int randomIndex = Random.Range(0, sprites.Count);
+
+
+        return sprites[randomIndex];
+
+        //return backgroundStones[randomIndex];
     }
 
 
@@ -63,12 +75,11 @@ public class RoomBackgroundGenerator : MonoBehaviour {
                 float yPos = (float)i / 2f;
 
                 if (i.IsOdd()) {
-                    Debug.Log(yPos+ " is I ODD" + " " + i);
-
+                    //Debug.Log(yPos+ " is I ODD" + " " + i);
                     tile.transform.localPosition = new Vector2(j -0.5f, yPos * -1);
                 }
                 else {
-                    Debug.Log(yPos + " is I Even" + " " + i);
+                    //Debug.Log(yPos + " is I Even" + " " + i);
                     tile.transform.localPosition = new Vector2(j, yPos * -1);
                 }
 

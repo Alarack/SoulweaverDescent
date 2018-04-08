@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: bbaa07cc7f669554eb77c9e95867ac9a
-timeCreated: 1523094022
+timeCreated: 1523142837
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,7 @@ TextureImporter:
     21300012: Alcove
     21300014: White Arch Fill
     21300016: ArchGate
+    21300018: Cobble 1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -210,6 +211,20 @@ TextureImporter:
         height: 856
       alignment: 6
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cobble 1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 256
+        height: 128
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
