@@ -21,3 +21,5 @@ MonoBehaviour:
       - {fileID: 21300004, guid: bbaa07cc7f669554eb77c9e95867ac9a, type: 3}
       - {fileID: 21300006, guid: bbaa07cc7f669554eb77c9e95867ac9a, type: 3}
       - {fileID: 21300008, guid: bbaa07cc7f669554eb77c9e95867ac9a, type: 3}
+    - tileType: 1
+      sprites: []
