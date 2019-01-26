@@ -108,6 +108,10 @@ public class Player : MovingEntity {
     public void SetDirectionalInput(Vector2 input) {
         directionalInput = input;
 
+        bool running = directionalInput != Vector2.zero;
+        MyAnimator.SetBool("Running", running);
+        
+
         SetFacing(directionalInput.x);
     }
 
