@@ -287,14 +287,14 @@ public class SpecialAbility {
                 //targets.Clear();
                 effects[i].Activate();
             }
-            //Debug.Log(abilityName + " has no sequence and is activating");
+            Debug.Log(abilityName + " has no sequence and is activating");
             FinishActivation();
             return true;
         }
 
         targets.Clear();
 
-        //Debug.Log(sequencedAbilities[sequenceIndex].abilityName + " is activating");
+        Debug.Log(sequencedAbilities[sequenceIndex].abilityName + " is activating from a sequecnce");
 
         if (sequencedAbilities[sequenceIndex].Activate()) {
             sequenceTimer.ResetTimer();
