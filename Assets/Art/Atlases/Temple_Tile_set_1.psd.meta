@@ -1,0 +1,1459 @@
+fileFormatVersion: 2
+guid: d018055ffba04524fa9eddd09db79eae
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: TEM1_Floor_Cap
+  - first:
+      213: 21300002
+    second: TEM1_Floor_Middle
+  - first:
+      213: 21300004
+    second: TEM1_Floor_Corner
+  - first:
+      213: 21300006
+    second: TEM1_Floor_Corner_Inside
+  - first:
+      213: 21300008
+    second: TEM1_FloorMiddle_BotCeiling
+  - first:
+      213: 21300010
+    second: TEM1_DoubleWall_CapBothSides
+  - first:
+      213: 21300012
+    second: TEM1_DoubleWall_Capside
+  - first:
+      213: 21300014
+    second: TEM1_DoubleWall_CapEnd
+  - first:
+      213: 21300016
+    second: TEM1_DoubleWall
+  - first:
+      213: 21300018
+    second: TEM1_Floor_InsideCorner_BotCeiling
+  - first:
+      213: 21300020
+    second: TEM1_TileGap
+  - first:
+      213: 21300022
+    second: TEM1_Ceiling_Corner
+  - first:
+      213: 21300024
+    second: TEM1_Ceiling_OpenTop
+  - first:
+      213: 21300026
+    second: TEM1_Ceiling_InsideCorner
+  - first:
+      213: 21300028
+    second: TEM1_Wall
+  - first:
+      213: 21300030
+    second: TEM1_Floor_OpenBot
+  - first:
+      213: 21300032
+    second: TEM1_Floor_InsideCorner
+  - first:
+      213: 21300034
+    second: TEM1_Mosaic_SquareLarge_V1
+  - first:
+      213: 21300036
+    second: TEM1_Mosaic_RectLarge_V1
+  - first:
+      213: 21300038
+    second: TEM1_Mosaic_SquareMedium_V1
+  - first:
+      213: 21300040
+    second: TEM1_Mosaic_RectSmall_V1
+  - first:
+      213: 21300042
+    second: TEM1_Mosaic_SquareSmall_V1
+  - first:
+      213: 21300044
+    second: TEM1_Stair
+  - first:
+      213: 21300046
+    second: TEM1_Stairs_Under
+  - first:
+      213: 778562344120243565
+    second: TEM1_DoubleDoors
+  - first:
+      213: -1963645060989322398
+    second: TEM1_OrbClawHolster
+  - first:
+      213: -2053310333810191904
+    second: TEM1_WindowMedium
+  - first:
+      213: -4942671919199567844
+    second: TEM1_TrapBlade
+  - first:
+      213: -1685596220789929266
+    second: TEM1_TileTrapEmitter
+  - first:
+      213: -601926315702879861
+    second: TEM1_Lantern
+  - first:
+      213: 7776035326592126838
+    second: TEM1_ChainWide
+  - first:
+      213: 5922599696154148667
+    second: TEM1_ChainFlat
+  - first:
+      213: 2399686020193127620
+    second: TEM1_ChainHolster
+  - first:
+      213: -4020103638759369534
+    second: TEM1_ChainHitch
+  - first:
+      213: 5150450649140557903
+    second: TEM1_GhostOrb
+  - first:
+      213: 9217978311819163581
+    second: TEM1_PylonCrystalGhostBlue
+  - first:
+      213: -8654333016013819290
+    second: TEM1_PylonGhostBlue
+  - first:
+      213: 3430228298684365101
+    second: TEM1_StoneBrazier
+  - first:
+      213: -1563805829077874297
+    second: TEM1_BlueVase_Chunk4
+  - first:
+      213: 1235175281846022839
+    second: TEM1_BlueVase
+  - first:
+      213: -4176971634708459316
+    second: TEM1_BlueVase_Chunk1
+  - first:
+      213: -5254972049596249316
+    second: TEM1_BlueVase_Chunk5
+  - first:
+      213: 4324733108956434104
+    second: TEM1_BlueVase_Chunk3
+  - first:
+      213: 2154004404368944800
+    second: TEM1_BlueVase_Chunk6
+  - first:
+      213: -3187190131969354971
+    second: TEM1_BlueVase_Chunk2
+  - first:
+      213: -6625013874616421792
+    second: TEM1_BasicCrate
+  - first:
+      213: -3326855171668681621
+    second: TEM1_BasicCrate_Chunk1
+  - first:
+      213: 481059070786038045
+    second: TEM1_BasicCrate_Chunk2
+  - first:
+      213: -7736166890012339294
+    second: TEM1_BasicCrate_Chunk3
+  - first:
+      213: 5933284199261117300
+    second: TEM1_BasicCrate_Chunk4
+  - first:
+      213: -6297791591229752227
+    second: TEM1_BasicCrate_Chunk5
+  - first:
+      213: -8789543223362738852
+    second: TEM1_BasicCrate_Chunk6
+  - first:
+      213: -6689275729605577922
+    second: TEM1_BanisterTop
+  - first:
+      213: -4118840759196413712
+    second: TEM1_BanisterMiddle
+  - first:
+      213: 8280441389555335195
+    second: TEM1_BanisterBottom
+  - first:
+      213: 7098945205919136109
+    second: TEM1_FloorGrate
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TEM1_Floor_Cap
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca85491c77996114faba0ec834a95846
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Floor_Middle
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e45933248e922f42b1f2dd7daba9dd8
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Floor_Corner
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e160826113667b4aa037bab4b95785a
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Floor_Corner_Inside
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f88784ede0637d4183122be2a145e62
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_FloorMiddle_BotCeiling
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfc9c83079207ea48b4c9ec22bdc5f80
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_DoubleWall_CapBothSides
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff427a5c6b558c4689208df78452908
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_DoubleWall_Capside
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a7deb9f476d3d4b930588ab45fa2f4
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_DoubleWall_CapEnd
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bf5729667f0a7a45bb8dc04711202b9
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_DoubleWall
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ef8d41dc6138847aa436b30e985278
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Floor_InsideCorner_BotCeiling
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f30aac8a7542a3e4eb3ed0291ec360ca
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_TileGap
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21cb32e4f0629194ab08c60829091eb0
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Ceiling_Corner
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 035e63b792e9a3949bbfe33c3cf7519f
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Ceiling_OpenTop
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0ad83186af15ae49b4dc0d65fe30314
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Ceiling_InsideCorner
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9315ec30ba9432047a3ce7132386a122
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Wall
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37d8c3ce264adf349a1a55c921428310
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Floor_OpenBot
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed9526307f34dc44811a565cf415d78
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Floor_InsideCorner
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4ac526c5514d8b4a858ae4091900786
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Mosaic_SquareLarge_V1
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f959bf5dd645504c8b80eff1c69b90d
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Mosaic_RectLarge_V1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 960
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82eab13d22cacdc40b503200ff6e90b8
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Mosaic_SquareMedium_V1
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 992
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083bed7de87651c43a7df867e71e9762
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Mosaic_RectSmall_V1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1008
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b7a85d219aa88643b4a39a6204e5644
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Mosaic_SquareSmall_V1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 992
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54be0f4d37f895345b135ac2e564ff40
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Stair
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0e43d4e4c01a7f48aa62644c474161d
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Stairs_Under
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: addb9784592cb084b87379bfdba14c51
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_DoubleDoors
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 901
+        width: 94
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c58905076be86f6489a4f916fac5e63d
+      internalID: 778562344120243565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_OrbClawHolster
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 966
+        width: 39
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd1acbbc9f6d135448f21913893289c5
+      internalID: -1963645060989322398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_WindowMedium
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 942
+        width: 34
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66f820d3097ae9046bbdf75c8f9a438c
+      internalID: -2053310333810191904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_TrapBlade
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 906
+        width: 12
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4acbaeb558164e2408d5ede5f5f813a2
+      internalID: -4942671919199567844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_TileTrapEmitter
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 899
+        width: 52
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630d08114a0d6b645960223d3f2ea419
+      internalID: -1685596220789929266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_Lantern
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 904
+        width: 19
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b31ef6a5ed22a0e439cd930ab93a3468
+      internalID: -601926315702879861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_ChainWide
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 932
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aed924fbd1a4eb44796ee4a77f1f08a2
+      internalID: 7776035326592126838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_ChainFlat
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 932
+        width: 1
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5890de8d46e792c4d99f9e9302c24d3a
+      internalID: 5922599696154148667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_ChainHolster
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 921
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59535e20641e3854daabf333dec8539d
+      internalID: 2399686020193127620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_ChainHitch
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 916
+        width: 2
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8334cc579fc1fe146adf2f26bde0a353
+      internalID: -4020103638759369534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_GhostOrb
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 877
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fe6cb5ff5345c84da3d5e5bf623834d
+      internalID: 5150450649140557903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_PylonCrystalGhostBlue
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 880
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81546fff2044270499da9fd247bf8231
+      internalID: 9217978311819163581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_PylonGhostBlue
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 832
+        width: 14
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f99ebcb075c71c94a81f42f55055ceab
+      internalID: -8654333016013819290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_StoneBrazier
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 832
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f406e701d3774947bdf4ee9b58c9754
+      internalID: 3430228298684365101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BlueVase_Chunk4
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 885
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69bf9f366e1e38e4684ef157b2c03fe6
+      internalID: -1563805829077874297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BlueVase
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 832
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edaeb001ef66eab43bc8243e7ad1d82c
+      internalID: 1235175281846022839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BlueVase_Chunk1
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 868
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c36cc6808b5910245ad99636d31b7a86
+      internalID: -4176971634708459316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BlueVase_Chunk5
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 882
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638d5fb7bd20d6f409833a91a0207e2c
+      internalID: -5254972049596249316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BlueVase_Chunk3
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 874
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 045be33e1a2d791489e67e0486de4e9c
+      internalID: 4324733108956434104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BlueVase_Chunk6
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 886
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a78dde6c7e9ae4e8462aa7a736b2f3
+      internalID: 2154004404368944800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BlueVase_Chunk2
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 868
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b6d2100e8f577b4b8655fc479c7d2a7
+      internalID: -3187190131969354971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BasicCrate
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 769
+        width: 44
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa4a982cf9a55f4d8fce71bcf173ca5
+      internalID: -6625013874616421792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BasicCrate_Chunk1
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 810
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f2e46b3076301c4483fdb47c60ca507
+      internalID: -3326855171668681621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BasicCrate_Chunk2
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 810
+        width: 27
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7d46343d7dfc564e81db6c0b95f259d
+      internalID: 481059070786038045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BasicCrate_Chunk3
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 818
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f6253afed12c554b8c0d51d18c08bd8
+      internalID: -7736166890012339294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BasicCrate_Chunk4
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 819
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 204d75d744b326b4298e2ffdc079854c
+      internalID: 5933284199261117300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BasicCrate_Chunk5
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 826
+        width: 15
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d81ca107b0ccb7b45aba31764405d938
+      internalID: -6297791591229752227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BasicCrate_Chunk6
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 826
+        width: 16
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc58b0340f0b76c4f92e93d354ccc762
+      internalID: -8789543223362738852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BanisterTop
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 832
+        width: 19
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c8b429a1efe0c74388f430f9820db69
+      internalID: -6689275729605577922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BanisterMiddle
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 832
+        width: 10
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d8a6b2efc982ff489d8da3d54d4d9c3
+      internalID: -4118840759196413712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_BanisterBottom
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 832
+        width: 15
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bbdcd76c40b3db4ba0aa5b96e020bc4
+      internalID: 8280441389555335195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEM1_FloorGrate
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 885
+        width: 59
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37e9534933e72c046811960ae34ff617
+      internalID: 7098945205919136109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1b27b841b8745474bb17735be046d888
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 1
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
